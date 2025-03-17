@@ -12,24 +12,24 @@
     <meta name="generator" content="Retype 3.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Get scheduled messages</title>
-    <meta name="title" content="Get scheduled messages">
-    <meta name="description" content="Get the list of scheduled messages. The list will have max 100 records, ordered by the scheduled date in descending order.">
+    <title>Get messages</title>
+    <meta name="title" content="Get messages">
+    <meta name="description" content="Get all the messages.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.sociocs.com/api/messaging/ind-list-scheduled/">
+    <link rel="canonical" href="https://docs.sociocs.com/api/messaging/get/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.sociocs.com/api/messaging/ind-list-scheduled/">
-    <meta property="og:title" content="Get scheduled messages">
-    <meta property="og:description" content="Get the list of scheduled messages. The list will have max 100 records, ordered by the scheduled date in descending order.">
+    <meta property="og:url" content="https://docs.sociocs.com/api/messaging/get/">
+    <meta property="og:title" content="Get messages">
+    <meta property="og:description" content="Get all the messages.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.sociocs.com/api/messaging/ind-list-scheduled/">
-    <meta property="twitter:title" content="Get scheduled messages">
-    <meta property="twitter:description" content="Get the list of scheduled messages. The list will have max 100 records, ordered by the scheduled date in descending order.">
+    <meta property="twitter:url" content="https://docs.sociocs.com/api/messaging/get/">
+    <meta property="twitter:title" content="Get messages">
+    <meta property="twitter:description" content="Get all the messages.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -198,13 +198,13 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="get-scheduled-messages" class="break-words">
+<doc-anchor-target id="get-messages" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#get-scheduled-messages">#</doc-anchor-trigger>
-        <span>Get scheduled messages</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#get-messages">#</doc-anchor-trigger>
+        <span>Get messages</span>
     </h1>
 </doc-anchor-target>
-<p>Get the list of scheduled messages. The list will have max 100 records, ordered by the scheduled date in descending order. Pagination is not available at the moment.</p>
+<p>Get all the messages.</p>
 <doc-anchor-target id="method">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#method">#</doc-anchor-trigger>
@@ -220,7 +220,39 @@
         <span>Path</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>/messages/scheduled</code></p>
+<p><code v-pre>/messages</code></p>
+<doc-anchor-target id="query-string-parameter">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#query-string-parameter">#</doc-anchor-trigger>
+        <span>Query string parameter</span>
+    </h2>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="compact">
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Required?</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_date</td>
+<td>Date in YYYY-MM-DD format (e.g., <code v-pre>2024-01-01</code>)</td>
+<td>No</td>
+<td>Defaults to 90 days before today. <br />Results include given date.</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Date in YYYY-MM-DD format (e.g., <code v-pre>2024-01-31</code>)</td>
+<td>No</td>
+<td>Defaults to today. <br />Results include given date.</td>
+</tr>
+</tbody>
+</table>
+</div>
 <doc-anchor-target id="response">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#response">#</doc-anchor-trigger>
@@ -298,8 +330,8 @@
 </tr>
 <tr>
 <td>data</td>
-<td>Array of object with the scheduled message fields.</td>
-<td>Only present when status is <code v-pre>success</code>.</td>
+<td>Array of message objects</td>
+<td>Only present when status is <code v-pre>success</code></td>
 </tr>
 </tbody>
 </table>
@@ -314,7 +346,7 @@
 <doc-tab v-cloak id="curl">
 <template #title>cURL</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">curl --location --request GET 'https://api.sociocs.com/messages/scheduled' \
+<pre class="language-bash"><code v-pre class="language-bash">curl --location --request GET 'https://api.sociocs.com/messages' \
 --header 'apikey: your_api_key' \</code></pre>
 </doc-codeblock></div>
 </doc-tab>
@@ -328,20 +360,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../api/messaging/ind-send/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../api/messaging/bulk-delete/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Send message</span>
+                                                <span class="block mt-1">Delete bulk messaging job</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../api/messaging/ind-delete-scheduled/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../api/messaging/get-unreplied/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Delete scheduled message</span>
+                                                <span class="block mt-1">Get unreplied messages</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -385,6 +417,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Get scheduled messages", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Get messages", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
