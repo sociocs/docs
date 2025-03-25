@@ -1,6 +1,6 @@
 ---
 title: Send message
-order: -200
+order: -100
 data:
     path: "/message"
 ---
