@@ -12,24 +12,24 @@
     <meta name="generator" content="Retype 3.6.0">
 
     <!-- Primary Meta Tags -->
-    <title>Get contacts</title>
-    <meta name="title" content="Get contacts">
-    <meta name="description" content="Get contacts from 'All Contacts' or belonging to a list.">
+    <title>Search contacts</title>
+    <meta name="title" content="Search contacts">
+    <meta name="description" content="Search contacts by partial/full name or phone number.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.sociocs.com/api/contacts/list/">
+    <link rel="canonical" href="https://docs.sociocs.com/api/contacts/search/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.sociocs.com/api/contacts/list/">
-    <meta property="og:title" content="Get contacts">
-    <meta property="og:description" content="Get contacts from 'All Contacts' or belonging to a list.">
+    <meta property="og:url" content="https://docs.sociocs.com/api/contacts/search/">
+    <meta property="og:title" content="Search contacts">
+    <meta property="og:description" content="Search contacts by partial/full name or phone number.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.sociocs.com/api/contacts/list/">
-    <meta property="twitter:title" content="Get contacts">
-    <meta property="twitter:description" content="Get contacts from 'All Contacts' or belonging to a list.">
+    <meta property="twitter:url" content="https://docs.sociocs.com/api/contacts/search/">
+    <meta property="twitter:title" content="Search contacts">
+    <meta property="twitter:description" content="Search contacts by partial/full name or phone number.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -198,13 +198,13 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="get-contacts" class="break-words">
+<doc-anchor-target id="search-contacts" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#get-contacts">#</doc-anchor-trigger>
-        <span>Get contacts</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#search-contacts">#</doc-anchor-trigger>
+        <span>Search contacts</span>
     </h1>
 </doc-anchor-target>
-<p>Get contacts from &#x27;All Contacts&#x27; or belonging to a list.</p>
+<p>Search contacts by partial/full name or phone number.</p>
 <doc-anchor-target id="method">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#method">#</doc-anchor-trigger>
@@ -220,7 +220,7 @@
         <span>Path</span>
     </h2>
 </doc-anchor-target>
-<p><code v-pre>/contacts</code></p>
+<p><code v-pre>/contacts/search</code></p>
 <doc-anchor-target id="query-string-parameter">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#query-string-parameter">#</doc-anchor-trigger>
@@ -238,14 +238,14 @@
 </thead>
 <tbody>
 <tr>
-<td>list_id</td>
-<td><code v-pre>0</code> - to get all Contacts or <br/> List ID - to get contacts from a specific list (Use <a href="../../contact-lists/get/">/lists</a> endpoint to get all the contact lists)</td>
-<td>No</td>
+<td>query</td>
+<td>Search term (either partial/full name or phone number). Search is case insensitive. Minimum 2 characters are required.</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Number of records to return. Max allowed value is 1000.</td>
-<td>No. Defaults to 1000.</td>
+<td>Number of records to return. Max allowed value is 20.</td>
+<td>No. Defaults to 20.</td>
 </tr>
 <tr>
 <td>offset</td>
@@ -332,7 +332,7 @@
 </tr>
 <tr>
 <td>data</td>
-<td>Array of contact objects. Result is sorted by the contact ID in ascending order.</td>
+<td>Array of contact objects. Result is sorted by relevance of the match.</td>
 <td>Only present when status is <code v-pre>success</code></td>
 </tr>
 </tbody>
@@ -348,7 +348,7 @@
 <doc-tab v-cloak id="curl">
 <template #title>cURL</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">curl --location --request GET 'https://api.sociocs.com/contacts?list_id=1000001&amp;limit=100&amp;offset=200' \
+<pre class="language-bash"><code v-pre class="language-bash">curl --location --request GET 'https://api.sociocs.com/contacts/search?query=Emilia&amp;limit=10&amp;offset=0' \
 --header 'apikey: your_api_key' \</code></pre>
 </doc-codeblock></div>
 </doc-tab>
@@ -362,20 +362,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../api/contacts/add-bulk/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../api/contacts/list/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Add contacts bulk</span>
+                                                <span class="block mt-1">Get contacts</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../api/contacts/search/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../api/contacts/get/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Search contacts</span>
+                                                <span class="block mt-1">Get contact</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -419,6 +419,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Get contacts", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Search contacts", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
