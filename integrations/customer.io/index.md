@@ -1,7 +1,7 @@
 ---
 label: Customer.io
 title: Customer.io Integrations
-order: -100
+order: -300
 ---
 
 There are different types of integrations supported.

@@ -1,7 +1,7 @@
 ---
 label: WordPress
 title: WordPress Integrations
-order: -400
+order: -500
 ---
 
 There are two native Webflow integrations supported by Sociocs.
