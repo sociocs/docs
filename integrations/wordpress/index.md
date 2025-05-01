@@ -4,7 +4,7 @@ title: WordPress Integrations
 order: -500
 ---
 
-There are two native Webflow integrations supported by Sociocs.
+There are two native WordPress integrations supported by Sociocs.
 
 1. [Click to Chat by Text Plugin](/integrations/wordpress/c2csms.md)
 
