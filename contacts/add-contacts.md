@@ -3,7 +3,7 @@ title: Add contacts
 order: -300
 ---
 
-There are multiple ways to add contacts to a [!badge text="contact list"](/contacts/contact-lists.md).
+There are multiple ways to add contacts to a [contact list](/contacts/contact-lists.md).
 
 ## Add a single contact
 
@@ -11,13 +11,13 @@ There are multiple ways to add contacts to a [!badge text="contact list"](/conta
 
 - Click on a contact list.
 
-- Click on "*Add contact*" button on the top right.
+- Click on the three dots menu on the top right and select "*Add contact*".
 
 - Enter below information in the popup.
-  - Name - Name of the contact person. This field is optional but recommended.
-  - Country code - Country dial code for the phone number.
-  - Phone number
-  - Extra fields - You can add custom fields for the contact here (e.g. email_address). These can be used as dynamic fields in the bulk messaging, or as parameters in the Zapier integration.
+  - **Name** - Name of the contact person. This field is optional but recommended.
+  - **Country code** - Country dial code for the phone number.
+  - **Phone number** - Phone number without the country dial code.
+  - **Extra fields** - You can add custom fields for the contact here (e.g. email_address). These can be used as dynamic fields in the bulk messaging, or as parameters in the Zapier integration.
 
 ## Add multiple contacts
 
@@ -27,7 +27,7 @@ You can upload multiple contacts using a CSV or an Excel file.
 
 - Click on a contact list.
 
-- Click on "*Import contacts*" button on the top right.
+- Click on the "*Import contacts*" button on the top right.
 
 ---
 
@@ -37,7 +37,7 @@ You can upload multiple contacts using a CSV or an Excel file.
 
 ### List
 
-Select a contact list you might have created or you can leave it as "*All contacts*". You can also create a new list.
+Select a contact list you might have created or leave it as "*All contacts*". You can also create a new list.
 
 ### File
 
@@ -83,7 +83,7 @@ For example, if you upload a file like below, the value entered should be `Phone
 
 If the file doesn't have column headers, and you checked "*The file's first record doesn't have column headers*", provide the value you entered as the column header for the phone number column.
 
----
+### Submit
 
 Once you click "*Next*", you will be shown a confirmation popup with sample records.
 
