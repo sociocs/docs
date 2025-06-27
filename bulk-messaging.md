@@ -1,6 +1,6 @@
 ---
 title: "Bulk messaging"
-icon: "https://static.sociocs.com/icons-docs/bulk-messaging.svg"
+icon: megaphone
 order: -200
 ---
 

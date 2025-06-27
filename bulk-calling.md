@@ -1,6 +1,6 @@
 ---
 title: "Bulk calling"
-icon: "https://static.sociocs.com/icons-docs/bulk-calling.svg"
+icon: device-mobile
 order: -212
 ---
 
