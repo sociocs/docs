@@ -42,3 +42,4 @@ text | Message text | String
 file_urls | Publicly accessible links to files in the message | Array of String
 image_urls | Publicly accessible links to images in the message | Array of String
 video_urls | Publicly accessible links to videos in the message | Array of String
+contact | Object with contact details (if a contact with the 'from' phone number is found) | Object
