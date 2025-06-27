@@ -6,10 +6,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799412961557">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.10.1.804346946927">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.7.0">
+    <meta name="generator" content="Retype 3.10.1">
 
     <!-- Primary Meta Tags -->
     <title>Bulk messaging</title>
@@ -33,31 +33,31 @@
     <meta property="twitter:description" content="This functionality requires a PAID or FREE TRIAL account on Sociocs.">
     <meta property="twitter:image" content="https://github.com/sociocs/docs/assets/12301512/6f3a05fb-c385-44df-8ec9-9c723cda9ac4">
 
-    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link href="../static/images/sociocs-icon-32.png" rel="icon">
-    <link href="../resources/css/retype.css?v=3.7.0.799412961557" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.10.1.804346946927" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.7.0.799412961557" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.7.0.799412961557" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.10.1.804346946927" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=3.10.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.10.1.804346946927" data-turbo-eval="false" defer></script>
 </head>
 <body>
-    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
-        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    <div id="retype-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
     
-        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+        <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
             <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
                 <!-- Mobile menu button skeleton -->
-                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
-                <div v-cloak id="docs-sidebar-toggle"></div>
+                <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="retype-sidebar-left-toggle-button"></div>
         
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../" class="flex items-center leading-snug text-2xl">
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Sociocs</span>
-                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                        <a id="retype-branding-logo" href="../" class="flex items-center leading-snug text-2xl">
+                            <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Sociocs</span>
+                        </a><span id="retype-branding-label" class="hidden mt-1 px-2 py-1 ml-4 text-xs font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-md md:inline-block">Docs</span>
                     </div>
         
                     <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -65,7 +65,7 @@
         
                 <div class="flex justify-between md:grow">
                     <!-- Top Nav -->
-                    <nav class="hidden md:flex">
+                    <nav id="retype-header-nav" class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                             <li class="mr-6">
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://www.sociocs.com" target="_blank">Sociocs.com</a>
@@ -115,7 +115,7 @@
                     </div>
         
                     <div v-cloak class="flex justify-end grow">
-                        <div id="docs-mobile-search-button"></div>
+                        <div id="retype-mobile-search-button"></div>
                         <doc-search-desktop></doc-search-desktop>
         
                         <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
@@ -125,9 +125,9 @@
             </div>
         </header>
     
-        <div class="container relative flex bg-white">
+        <div id="retype-container" class="container relative flex bg-white">
             <!-- Sidebar Skeleton -->
-            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-white border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
             
                 <div class="flex items-center h-16 px-6">
                     <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
@@ -192,11 +192,11 @@
             <div class="grow min-w-0 dark:bg-dark-850">
                 <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
                 <div class="flex">
-                    <div class="min-w-0 p-4 grow md:px-16">
+                    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
                         <main class="relative pb-12 lg:pt-2">
-                            <div class="docs-markdown" id="docs-content">
+                            <div class="retype-markdown" id="retype-content">
                                 <!-- Rendered if sidebar right is enabled -->
-                                <div id="docs-sidebar-right-toggle"></div>
+                                <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
 <doc-anchor-target id="bulk-messaging" class="break-words">
     <h1>
@@ -206,8 +206,8 @@
 </doc-anchor-target>
 <!-- markdownlint-disable-next-line -->
 <div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
         <div class="flex items-center ml-4 h-7">
             <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
@@ -228,7 +228,7 @@
         <span>Introduction</span>
     </h2>
 </doc-anchor-target>
-<p>With bulk messaging, as the name suggests, you can send bulk messages to your target audience.</p>
+<p>Bulk messaging feature allows you to send personalized text/SMS/MMS or WhatsApp messages to multiple recipients simultaneously, ideal for marketing campaigns, updates, or notifications.</p>
 <doc-anchor-target id="channels-supporting-bulk-messaging">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#channels-supporting-bulk-messaging">#</doc-anchor-trigger>
@@ -237,16 +237,11 @@
 </doc-anchor-target>
 <ul>
 <li>SMS (with Twilio)</li>
+<li>SMS (with Telnyx)</li>
+<li>SMS with TWilio Messaging Service</li>
 <li>WhatsApp (with Gupshup) (<em>Future plan, not available at the moment.</em>)</li>
 <li>WhatsApp (with Twilio) (<em>Future plan, not available at the moment.</em>)</li>
 </ul>
-<doc-anchor-target id="prerequisite">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#prerequisite">#</doc-anchor-trigger>
-        <span>Prerequisite</span>
-    </h2>
-</doc-anchor-target>
-<p>Your account needs to have at least one &quot;<em>SMS (with Twilio)</em>&quot; channel.</p>
 <doc-anchor-target id="data-sources-supported">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#data-sources-supported">#</doc-anchor-trigger>
@@ -254,9 +249,10 @@
     </h2>
 </doc-anchor-target>
 <ul>
-<li>CSV file</li>
-<li>Excel file</li>
-<li>Contact list</li>
+<li>CSV files</li>
+<li>Excel files</li>
+<li>Contact lists</li>
+<li>Segments</li>
 </ul>
 <doc-anchor-target id="message-content-types-supported">
     <h2>
@@ -266,8 +262,21 @@
 </doc-anchor-target>
 <ul>
 <li>Text</li>
-<li>Image (gif, jpg, or png)</li>
-<li>Video (mp4 or 3gp)</li>
+<li>Image</li>
+<li>Video</li>
+<li>File (only supported for WhatsApp)</li>
+</ul>
+<doc-anchor-target id="compliance-and-best-practices">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#compliance-and-best-practices">#</doc-anchor-trigger>
+        <span>Compliance and Best Practices</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>Obtain explicit consent from recipients before sending messages.</li>
+<li>Include an opt-out text in the message (e.g., &quot;Reply STOP to unsubscribe&quot;).</li>
+<li>Comply with local regulations, such as TCPA (US) or GDPR (EU).</li>
+<li>Send messages during reasonable hours to respect recipients’ time.</li>
 </ul>
 <doc-anchor-target id="sending-bulk-messages">
     <h2>
@@ -276,31 +285,38 @@
     </h2>
 </doc-anchor-target>
 <ul>
-<li><p>Go to &quot;<em>Bulk messaging</em>&quot; from the left sidebar.</p>
+<li><p>Go to &quot;<em>Bulk messaging</em>&quot; from the left sidebar menu.</p>
 </li>
 <li><p>Select a channel from the list of eligible channels in your account.</p>
 </li>
 </ul>
 <hr>
 <p><strong>Provide information for the below fields.</strong></p>
-<doc-anchor-target id="message-text">
+<doc-anchor-target id="message-content">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#message-text">#</doc-anchor-trigger>
-        <span>Message text</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#message-content">#</doc-anchor-trigger>
+        <span>Message content</span>
     </h3>
 </doc-anchor-target>
-<p>Enter message content in this field. You can personalize the messages by adding <a href="../miscellaneous/dynamic-fields/" target="_blank" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 border border-blue-100 hover:border-blue-300 dark:hover:bg-blue-200 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
-    <span>dynamic fields</span>
-</a> from your data source.</p>
+<doc-tabs>
+<doc-tab v-cloak id="for-textsmsmms">
+<template #title>For text/SMS/MMS</template>
+<doc-anchor-target id="message-text">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#message-text">#</doc-anchor-trigger>
+        <span>Message text</span>
+    </h4>
+</doc-anchor-target>
+<p>Enter message content in this field. You can personalize the messages by adding <a href="../miscellaneous/dynamic-fields/">dynamic fields</a> from your data source.</p>
 <p><figure class="content-center">
-    <img src="https://github.com/sociocs/docs/assets/12301512/6f3a05fb-c385-44df-8ec9-9c723cda9ac4" alt="Message example">
+    <img src="https://github.com/sociocs/docs/assets/12301512/6f3a05fb-c385-44df-8ec9-9c723cda9ac4" alt="Message example" />
     <figcaption class="caption">Message example</figcaption>
 </figure>
 </p>
 <!-- markdownlint-disable-next-line -->
 <div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-yellow-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
         <div class="flex items-center ml-4 h-7">
             <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
@@ -316,15 +332,15 @@
     </div>
 </div>
 <doc-anchor-target id="save-as-template">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#save-as-template">#</doc-anchor-trigger>
         <span>Save as template</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <p>You can use this check box to save the entered messages text as a template. It can update an existing template with new text or create a new template.</p>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
         <div class="flex items-center ml-4 h-7">
             <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
@@ -340,14 +356,55 @@
     </div>
 </div>
 <doc-anchor-target id="attach-media-file">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#attach-media-file">#</doc-anchor-trigger>
         <span>Attach media file</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
-<p>In addition to the text, you can also send an image or video in the message. To see the list of allowed file types, go to <doc-anchor-trigger to="#message-content-types-supported" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 border border-blue-100 hover:border-blue-300 dark:hover:bg-blue-200 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
-    <span>Message content types supported</span>
-</doc-anchor-trigger>.</p>
+<p>In addition to the text, you can also send an image or video in the message.</p>
+</doc-tab>
+<doc-tab v-cloak id="for-whatsapp">
+<template #title>For WhatsApp</template>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>Sending bulk WhatsApp messages requires an approved template from WhatsApp. You can submit the template for approval on the website of the provider you used to create your WhatsApp account (e.g., Twilio).</p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="template-type-only-applicable-for-whatsapp-with-gupshup-channels">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#template-type-only-applicable-for-whatsapp-with-gupshup-channels">#</doc-anchor-trigger>
+        <span>Template type [only applicable for WhatsApp (with Gupshup) channels]</span>
+    </h4>
+</doc-anchor-target>
+<p>Select a template type as applicable for your situation.</p>
+<ul>
+<li><p><strong>Legacy templates</strong>: You can use this option to send messages without any personalizations. Please ensure to enter the &quot;<em>Message text</em>&quot; that matches a WhatsApp approved template. You can ignore the &quot;<em>Select a template</em>&quot; step mentioned below.</p>
+</li>
+<li><p><strong>Rich templates</strong>: This the recommended option which supports message personalization with dynamic parameters.</p>
+</li>
+</ul>
+<doc-anchor-target id="select-a-template">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#select-a-template">#</doc-anchor-trigger>
+        <span>Select a template</span>
+    </h4>
+</doc-anchor-target>
+<p>Select a WhatsApp approved template from the list on the right hand size.</p>
+<p><strong>After selecting a template, a light blue box for variable mapping appears on the page, below the data sources configuration. You should map the dynamic parameters there to enable personalization.</strong></p>
+</doc-tab>
+</doc-tabs>
 <doc-anchor-target id="data-source">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#data-source">#</doc-anchor-trigger>
@@ -355,10 +412,10 @@
     </h3>
 </doc-anchor-target>
 <doc-tabs>
-<doc-tab v-cloak id="upload-csv-excel">
+<doc-tab v-cloak id="upload-csvexcel">
 <template #title>Upload CSV/Excel</template>
 <p><figure class="content-center">
-    <img src="https://github.com/sociocs/docs/assets/12301512/ace4720a-a57f-4a39-836b-a2aeb0489ccd" alt="Upload CSV/Excel tab">
+    <img src="https://github.com/sociocs/docs/assets/12301512/ace4720a-a57f-4a39-836b-a2aeb0489ccd" alt="Upload CSV/Excel tab" />
     <figcaption class="caption">Upload CSV/Excel tab</figcaption>
 </figure>
 </p>
@@ -385,10 +442,10 @@
 </doc-anchor-target>
 <p>When the file you&#x27;re uploading doesn&#x27;t have any column headers, you can specify the column headers in text box that shows up once you check this box.</p>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
         <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
                     <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
                     <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
@@ -397,13 +454,14 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
+            <h5>info</h5>
 <p>This is very helpful when you&#x27;re exporting the file from another system which doesn&#x27;t export with column headers. You can specify the column headers here instead of adding to the exported file each time.</p>
         </div>
     </div>
 </div>
 <p>Column headers must be provided separated by comma in the exact order as the file records. For example, if you upload a file like below, you could enter values in the text box like this - <code v-pre>id,full_name,first_name,last_name,phone_number,email_address,date_of_birth,address</code>.</p>
 <p><figure class="content-center">
-    <img src="https://github.com/sociocs/docs/assets/12301512/6ceaa641-9048-40ed-9ca6-68477a6d35be" alt="File example without column headers">
+    <img src="https://github.com/sociocs/docs/assets/12301512/6ceaa641-9048-40ed-9ca6-68477a6d35be" alt="File example without column headers" />
     <figcaption class="caption">File example without column headers</figcaption>
 </figure>
 </p>
@@ -413,12 +471,12 @@
         <span>To country code</span>
     </h4>
 </doc-anchor-target>
-<p>If the phone numbers in the file do not start with the country dial code (e.g., +1 or 1), you should select the appropriate country dial code in this dropdown list.</p>
+<p>If the phone numbers in the file do not start with the country dial code (e.g., <code v-pre>+1</code> or <code v-pre>1</code>), you should select the appropriate country dial code in this dropdown list.</p>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
         <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
                     <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
                     <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
@@ -427,6 +485,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
+            <h5>info</h5>
 <p>If the value shown by default is correct, there is no need to change it.</p>
         </div>
     </div>
@@ -439,8 +498,8 @@
 </doc-anchor-target>
 <p>This option must be checked when the phone numbers in the file you&#x27;re uploading already start with the country dial code (e.g., +1 or 1).</p>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-yellow-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
         <div class="flex items-center ml-4 h-7">
             <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
@@ -464,7 +523,7 @@
 <p>Specify the column header of the recipient name column in the uploaded file.</p>
 <p>For example, if you upload a file like below, the value entered should be <code v-pre>Full_Name</code>.
 <figure class="content-center">
-    <img src="https://github.com/sociocs/docs/assets/12301512/4935ce0f-a842-46c9-b79d-bc92be929aa3" alt="File example">
+    <img src="https://github.com/sociocs/docs/assets/12301512/4935ce0f-a842-46c9-b79d-bc92be929aa3" alt="File example" />
     <figcaption class="caption">File example</figcaption>
 </figure>
 </p>
@@ -478,16 +537,16 @@
 <p>Specify the column header of the phone number column in the uploaded file.</p>
 <p>For example, if you upload a file like below, the value entered should be <code v-pre>Phone_Number</code>.
 <figure class="content-center">
-    <img src="https://github.com/sociocs/docs/assets/12301512/fb7a8197-a3d3-42bc-9336-7fc42090072b" alt="File example">
+    <img src="https://github.com/sociocs/docs/assets/12301512/fb7a8197-a3d3-42bc-9336-7fc42090072b" alt="File example" />
     <figcaption class="caption">File example</figcaption>
 </figure>
 </p>
 <p>If the file doesn&#x27;t have column headers, and you checked &quot;<em>The file&#x27;s first record doesn&#x27;t have column headers</em>&quot;, provide the value you entered as the column header for the phone number column.</p>
 </doc-tab>
-<doc-tab v-cloak id="use-contact-list">
-<template #title>Use Contact List</template>
+<doc-tab v-cloak id="use-contact-list-or-segment">
+<template #title>Use Contact List or Segment</template>
 <p><figure class="content-center">
-    <img src="https://github.com/sociocs/docs/assets/12301512/246667ba-a663-4dee-a87c-13ef00183f00" alt="Use Contact List tab">
+    <img src="https://github.com/sociocs/docs/assets/12301512/246667ba-a663-4dee-a87c-13ef00183f00" alt="Use Contact List tab" />
     <figcaption class="caption">Use Contact List tab</figcaption>
 </figure>
 </p>
@@ -497,7 +556,7 @@
         <span>Select a list</span>
     </h4>
 </doc-anchor-target>
-<p>Select one of the contact lists you have already created. See Contacts for more information.</p>
+<p>Select one of the contact lists or segments you have already created. See <a href="../contacts/introduction/">Contacts</a> for more information.</p>
 </doc-tab>
 </doc-tabs>
 <doc-anchor-target id="auto-translation">
@@ -506,21 +565,17 @@
         <span>Auto translation</span>
     </h3>
 </doc-anchor-target>
-<p>Check this box if you would like to have the message text auto translated to recipient&#x27;s language. For this to work, the source data also needs to have <code v-pre>language</code> value from the <a href="../miscellaneous/translation-languages/" target="_blank" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 border border-blue-100 hover:border-blue-300 dark:hover:bg-blue-200 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
-    <span>list of supported languages</span>
-</a>.</p>
+<p>Check this box if you would like to have the message text auto translated to recipient&#x27;s language. For this to work, the source data also needs to have <code v-pre>language</code> value from the <a href="../miscellaneous/translation-languages/">list of supported languages</a>.</p>
 <doc-anchor-target id="when-using-a-csvexcel-file">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#when-using-a-csvexcel-file">#</doc-anchor-trigger>
         <span>When using a CSV/Excel file</span>
     </h4>
 </doc-anchor-target>
-<p>The file needs to have a column with header <code v-pre>language</code> (<em>must be in all lowercase</em>). The value should be <code v-pre>Language code</code> from <a href="../miscellaneous/translation-languages/" target="_blank" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 border border-blue-100 hover:border-blue-300 dark:hover:bg-blue-200 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
-    <span>this page</span>
-</a>.</p>
+<p>The file needs to have a column with header <code v-pre>language</code> (<em>must be in all lowercase</em>). The value should be <em>&quot;Language code&quot;</em> from <a href="../miscellaneous/translation-languages/">this page</a>.</p>
 <p>For example, to auto translate message text to a specific recipient to Spanish, you upload a file like below.</p>
 <p><figure class="content-center">
-    <img src="https://github.com/sociocs/docs/assets/12301512/9e8b6b81-d450-4a48-acb2-01a2e016ff0e" alt="File example">
+    <img src="https://github.com/sociocs/docs/assets/12301512/9e8b6b81-d450-4a48-acb2-01a2e016ff0e" alt="File example" />
     <figcaption class="caption">File example</figcaption>
 </figure>
 </p>
@@ -530,12 +585,10 @@
         <span>When using a contact list</span>
     </h4>
 </doc-anchor-target>
-<p>The contact requiring translation should have an <code v-pre>Extra field</code> with key <code v-pre>language</code> (<em>must be in all lowercase</em>). The value should be <code v-pre>Language code</code> from <a href="../miscellaneous/translation-languages/" target="_blank" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 border border-blue-100 hover:border-blue-300 dark:hover:bg-blue-200 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
-    <span>this page</span>
-</a>.</p>
+<p>The contact requiring translation should have an <code v-pre>Extra field</code> with key <code v-pre>language</code> (<em>must be in all lowercase</em>). The value should be &quot;<em>Language code</em>&quot; from <a href="../miscellaneous/translation-languages/">this page</a>.</p>
 <p>For example, to auto translate message text to a specific contact to Spanish, you add language extra field like below.</p>
 <p><figure class="content-center">
-    <img src="https://github.com/sociocs/docs/assets/12301512/da14ca29-b062-4711-9723-bd65c0f7e7fd" alt="Contact example">
+    <img src="https://github.com/sociocs/docs/assets/12301512/da14ca29-b062-4711-9723-bd65c0f7e7fd" alt="Contact example" />
     <figcaption class="caption">Contact example</figcaption>
 </figure>
 </p>
@@ -547,10 +600,10 @@
 </doc-anchor-target>
 <p>You can send the messages immediately or schedule it for a later date and time.</p>
 <div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
         <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
                 <g fill="currentColor"><g>
                     <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
                     <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
@@ -559,11 +612,28 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
+            <h5>info</h5>
 <p>You can schedule the campaign up to 30 days in advance.</p>
         </div>
     </div>
 </div>
-<hr>
+<doc-anchor-target id="drip-campaign">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#drip-campaign">#</doc-anchor-trigger>
+        <span>Drip campaign</span>
+    </h3>
+</doc-anchor-target>
+<p>You can control and limit number of messages sent at specific intervals with this feature.</p>
+<ul>
+<li>Check &quot;<em>Enable drip messaging</em>&quot; to activate this option and specify how many messages you would like to send at what interval.</li>
+<li>By default, message delivery is restricted to between 9 AM and 7 PM. You can customize this time window or disable the restriction entirely.</li>
+</ul>
+<doc-anchor-target id="submit">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#submit">#</doc-anchor-trigger>
+        <span>Submit</span>
+    </h3>
+</doc-anchor-target>
 <p>Once you click &quot;<em>Next</em>&quot;, you will be shown a confirmation popup with a sample preview of the message. You will also be able to send a test message to yourself before confirming the campaign.</p>
 <p>In case you need to make any changes, click &quot;<em>Cancel</em>&quot; in the confirmation popup to close it.</p>
 
@@ -571,9 +641,9 @@
                                 <!-- Required only on API pages -->
                                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
                             </div>
-                            <footer class="clear-both">
+                            <footer id="retype-content-footer" class="clear-both">
                             
-                                <nav class="flex mt-14">
+                                <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
                                         <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../getting-started/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
@@ -597,13 +667,13 @@
                             </footer>
                         </main>
                 
-                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
-                            <footer class="flex flex-wrap items-center justify-between">
-                                <div>
+                        <div id="retype-page-footer" class="print:border-none border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                                <div id="retype-footer-links" class="print:hidden">
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2025. All rights reserved.</p></div>
+                                <div id="retype-copyright" class="print:justify-center docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2025. All rights reserved.</p></div>
                             </footer>
                         </div>
                     </div>
@@ -630,7 +700,7 @@
     </div>
 
 
-    <div id="docs-overlay-target"></div>
+    <div id="retype-overlay-target"></div>
 
     <script data-cfasync="false">window.__DOCS__ = { "title": "Bulk messaging", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
