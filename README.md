@@ -7,7 +7,7 @@ icon: question
 
 ## What is Sociocs?
 
-Sociocs is a single inbox for all of your customer communications.
+Sociocs is a single inbox for all of your customer communication needs.
 
 ## Is Sociocs FREE?
 
@@ -19,11 +19,21 @@ When you see a mention of channel on Sociocs, it means a communication mechanism
 
 ## Which channels are supported?
 
-We support — Google Business Messages, Google Play Reviews, Google Reviews & Questions, Facebook (Messenger, Reviews & Comments), Telegram, Text / SMS, Viber, Web chat, Website Forms, WhatsApp.
+We support — 
+
+- Facebook (Messenger, Reviews & Comments), 
+- Google Play Reviews, 
+- Google Reviews & Questions, 
+- Telegram, 
+- Text / SMS / MMS (with your Twilio or Telnyx account), 
+- Viber, 
+- Web chat, 
+- Website Forms, 
+- WhatsApp (with your Twilio or Gupshup account).
 
 ## Is bulk messaging available?
 
-Yes. Bulk messaging is available for sending text / SMS to multiple recipients. It also allows dynamic parameters to personalize sent messages. You need to be on a PAID or FREE TRIAL plan to use bulk messaging.
+Yes. you can send text/SMS/MMS or WhatsApp messages to multiple recipients at once. Personalize your messages using dynamic parameters, such as the recipient’s name or other custom details, to create a more engaging experience. You need to be on a PAID or FREE TRIAL plan to use bulk messaging.
 
 ## Does the bulk messaging allow sending images?
 
@@ -40,3 +50,7 @@ Yes. Our web app and mobile apps generate notifications when new messages are re
 ## What do you mean by web app?
 
 Web app is our website / web portal available at <a href="https://app.sociocs.com" target="_blank">app.sociocs.com</a>.
+
+## How to pronounce 'Sociocs'?
+
+Different people say it differently and we're fine with it. We pronounce it as 'Socio-C-S'.

@@ -1,12 +1,12 @@
 ---
-label: Automation
+label: Send Messages
 title: "Sociocs app for ActiveCampaign automation"
 order: -200
 ---
 
 ## Introduction
 
-This app adds ability for you to send text/SMS (using your Twilio account) or WhatsApp messages (using your Twilio or Gupshup account) from your ActiveCampaign automation.
+This app adds ability for you to send text/SMS (using your Twilio or Telnyx account) or WhatsApp messages (using your Twilio or Gupshup account) from your ActiveCampaign automation.
 
 When the recipient replies to the message, it shows up in your Sociocs Inbox, from where you can reply, and continue the conversation.
 
@@ -23,6 +23,7 @@ You need a FREE TRIAL or PAID account on Sociocs to use the necessary API for th
 ## Supported channels
 
 - SMS (with Twilio)
+- SMS (with Telnyx)
 - WhatsApp (with Twilio)
 - WhatsApp (with Gupshup)
 
@@ -30,7 +31,7 @@ You need a FREE TRIAL or PAID account on Sociocs to use the necessary API for th
 
 {{include "signup-or-login"}}
 
-1. Connect "*SMS (with Twilio)*", "*WhatsApp (with Gupshup)*", or "*WhatsApp (with Twilio)*" channel on the "*Connect a new channel*" page. If you're an existing user, after logging in, click on "*Channels*" menu on the top, click on "*+*" button to go to the "*Connect a new channel*" page.
+1. Connect "*SMS (with Twilio)*", "*SMS (with Telnyx)*", "*WhatsApp (with Gupshup)*", or "*WhatsApp (with Twilio)*" channel on the "*Connect a new channel*" page. If you're an existing user, after logging in, click on "*Channels*" menu on the top, click on "*+*" button to go to the "*Connect a new channel*" page.
 
 1. Go to "*Profile & settings -> API*".
     ![settings](https://user-images.githubusercontent.com/12301512/163997321-90b286f5-e1aa-4df8-bc18-e453b20d26e8.png)
@@ -76,7 +77,9 @@ You need a FREE TRIAL or PAID account on Sociocs to use the necessary API for th
 1. Select "*Channel*" depending upon the phone number you would like to use for sending messages. If you have only one channel on Sociocs, you should see only one option in the dropdown list.
 
 1. Enter "*Message text*" (with personalization if you like), and click "*Finish*".
-    {{include "alert-whatsapp-apprvd-tmplt-reqd"}}
+    !!!warning
+    If you are planning to send WhatsApp messages using this integration, please note that the steps mentioned here work only for WhatsApp session messages. To send WhatsApp template messages, use "*Sociocs - Send Twilio WhatsApp Content Template Message*" action instead.
+    !!!
 
 ![image](https://github.com/sociocs/docs/assets/12301512/c5ddc3ba-8e6d-4db8-a637-8082e53da84f)
 

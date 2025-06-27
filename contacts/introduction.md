@@ -15,8 +15,8 @@ You can use contact lists in the Contacts page to upload a contact once, and use
 
 ## Useful with functionality
 
-- [!badge text="Bulk messaging" target="_blank"](/bulk-messaging.md)
-- Zapier integration
+- [Bulk messaging](/bulk-messaging.md)
+- [Zapier integration](/integrations/zapier/introduction.md)
 
 ## Data sources supported
 
