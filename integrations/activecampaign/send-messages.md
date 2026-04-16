@@ -22,8 +22,8 @@ You need a FREE TRIAL or PAID account on Sociocs to use the necessary API for th
 
 ## Supported channels
 
-- SMS (with Twilio)
 - SMS (with Telnyx)
+- SMS (with Twilio)
 - WhatsApp (with Twilio)
 - WhatsApp (with Gupshup)
 

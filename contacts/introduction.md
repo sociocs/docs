@@ -9,9 +9,10 @@ You can use contact lists in the Contacts page to upload a contact once, and use
 
 ## Useful with channels
 
+- SMS (with Telnyx)
 - SMS (with Twilio)
-- WhatsApp (with Gupshup) (*Future plan*)
-- WhatsApp (with Twilio) (*Future plan*)
+- WhatsApp (with Gupshup)
+- WhatsApp (with Twilio)
 
 ## Useful with functionality
 

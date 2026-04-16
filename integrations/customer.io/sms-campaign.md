@@ -18,13 +18,14 @@ You need a FREE TRIAL or PAID account on Sociocs to use the necessary API for th
 
 ## Supported channels
 
+- SMS (with Telnyx)
 - SMS (with Twilio)
 
 ## Setup on Sociocs
 
 {{include "signup-or-login"}}
 
-1. Connect "*SMS (with Twilio)*" channel on the "*Connect a new channel*" page. If you're an existing user, after logging in, click on "*Channels*" menu on the top, click on "*+*" button to go to the "*Connect a new channel*" page.
+1. Connect "*SMS (with Telnyx)*" or "*SMS (with Twilio)*" channel on the "*Connect a new channel*" page. If you're an existing user, after logging in, click on "*Channels*" menu on the top, click on "*+*" button to go to the "*Connect a new channel*" page.
 
 1. Go to "*Profile & settings -> API*".
     ![settings](https://user-images.githubusercontent.com/12301512/163997321-90b286f5-e1aa-4df8-bc18-e453b20d26e8.png)
