@@ -8,8 +8,8 @@ Bulk messaging feature allows you to send personalized text/SMS/MMS or WhatsApp 
 
 ## Channels supporting bulk messaging
 
-- SMS (with Twilio)
 - SMS (with Telnyx)
+- SMS (with Twilio)
 - SMS with TWilio Messaging Service
 - WhatsApp (with Gupshup) (*Future plan, not available at the moment.*)
 - WhatsApp (with Twilio) (*Future plan, not available at the moment.*)

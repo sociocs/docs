@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829644316762">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829651039882">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -41,12 +41,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/images/sociocs-icon-32.png" />
-    <link href="../../../resources/css/retype.css?v=4.5.3.829644316762" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.829651039882" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829644316762" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829651039882" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829644316762" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.829644316762" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829651039882" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.829651039882" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -221,6 +221,12 @@
 <td>Yes</td>
 </tr>
 <tr>
+<td>events</td>
+<td>Array of event types to listen to. <br /><code translate="no" v-pre>messages</code> to receiving incoming messages, <br /> <code translate="no" v-pre>status_updates</code> to receive status updates for outgoing messages.</td>
+<td>Array of string</td>
+<td>No. Defaults to <code translate="no" v-pre>[&quot;messages&quot;]</code>.</td>
+</tr>
+<tr>
 <td>subscriber_reference_id</td>
 <td>Unique identifier for the subscription. If you call the API again with the same value for this field, it will update the existing subscription.</td>
 <td>String</td>
@@ -333,6 +339,7 @@
     &quot;platform&quot;: &quot;salesforce&quot;,
     &quot;provider&quot;: &quot;twlo&quot;,
     &quot;channel_key&quot;: &quot;[your channel key]&quot;,
+    &quot;events&quot;: [&quot;messages&quot;, &quot;status_updates&quot;],
     &quot;subscriber_reference_id&quot;: &quot;ABC1234567890XYZ&quot;,
     &quot;webhook_url&quot;: &quot;https://example.com/incoming&quot;  
 }'</code></pre>

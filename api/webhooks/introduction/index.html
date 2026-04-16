@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829644316762">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829651039882">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -41,11 +41,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/images/sociocs-icon-32.png" />
-    <link href="../../../resources/css/retype.css?v=4.5.3.829644316762" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.829651039882" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829644316762" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829651039882" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829644316762" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829651039882" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -184,25 +184,9 @@
 <h1 id="information">Information</h1>
 <p>Webhooks are the REST APIs you created yourself or offered by a third-party software, which get called when a message is received in a Sociocs channel.</p>
 <p>URL of the REST API is referred to as webhook endpoint. You can set multiple webhooks endpoints for the same channel, or the same webhook endpoint for multiple channels.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-primary"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-primary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>As of now, Sociocs calls webhook only for &quot;incoming&quot; messages, that is, for the messages received from someone to your Sociocs connected channel.</p>
-        </div>
-    </div>
-</div>
 <h2 id="channels-supporting-webhooks">Channels supporting webhooks</h2>
 <ul>
+<li>SMS (with Telnyx)</li>
 <li>SMS (with Twilio)</li>
 <li>WhatsApp (with Gupshup)</li>
 <li>WhatsApp (with Twilio)</li>
@@ -215,7 +199,7 @@
 <p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-badge-primary-text bg-badge-primary border border-badge-primary-border h-6 px-2 text-xs rounded-md">
     <span>POST</span>
 </span></p>
-<h3 id="body-parameters">Body parameters</h3>
+<h3 id="new-incoming-message-body-parameters">New incoming message body parameters</h3>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -227,6 +211,16 @@
 </thead>
 <tbody>
 <tr>
+<td>message_id</td>
+<td>Message ID</td>
+<td>String</td>
+</tr>
+<tr>
+<td>event</td>
+<td><code translate="no" v-pre>message</code></td>
+<td>String</td>
+</tr>
+<tr>
 <td>provider</td>
 <td><code translate="no" v-pre>twlo</code> (for Twilio SMS), <br /><code translate="no" v-pre>twlowa</code> (for Twilio WhatsApp), <br /><code translate="no" v-pre>gswa</code> (for Gupshup WhatsApp)</td>
 <td>String</td>
@@ -234,6 +228,11 @@
 <tr>
 <td>channel_key</td>
 <td>Channel key associated to the webhook</td>
+<td>String</td>
+</tr>
+<tr>
+<td>direction</td>
+<td><code translate="no" v-pre>incoming</code></td>
 <td>String</td>
 </tr>
 <tr>
@@ -276,9 +275,111 @@
 <td>Object with contact details (if a contact with the &#x27;from&#x27; phone number is found)</td>
 <td>Object</td>
 </tr>
+<tr>
+<td>timestamp</td>
+<td>Timestamp as milliseconds since epoch.</td>
+<td>Integer</td>
+</tr>
 </tbody>
 </table>
 </div>
+<h4 id="example">Example</h4>
+<div id="example-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">{
+  &quot;message_id&quot;: &quot;MM2aa0db1b276eaeaa5d730d5aa34167f2&quot;,
+  &quot;event&quot;: &quot;message&quot;,
+  &quot;provider&quot;: &quot;twlo&quot;,
+  &quot;channel_key&quot;: &quot;twlo_16311113333&quot;,
+  &quot;direction&quot;: &quot;incoming&quot;,
+  &quot;from&quot;: &quot;16311112222&quot;,
+  &quot;to&quot;: &quot;16311113333&quot;,
+  &quot;text&quot;: &quot;Hello World!&quot;,
+  &quot;video_urls&quot;: [],
+  &quot;image_urls&quot;: [],
+  &quot;file_urls&quot;: [],
+  &quot;contact&quot;: {
+    &quot;id&quot;: 123,
+    &quot;name&quot;: &quot;Emily Johnson&quot;,
+    &quot;phone_number&quot;: &quot;16311112222&quot;,
+    &quot;phone_number_cc&quot;: &quot;&quot;,
+    &quot;extra_fields&quot;: &quot;{\&quot;city\&quot;: \&quot;Ahmedabad\&quot;, \&quot;country\&quot;: \&quot;India\&quot;}&quot;,
+    &quot;created_at&quot;: &quot;2025-07-11T11:29:46.000Z&quot;,
+    &quot;updated_at&quot;: &quot;2025-08-04T12:29:21.000Z&quot;,
+    &quot;is_blocked&quot;: 0
+  }
+  &quot;timestamp&quot;: 1754455905897,
+}</code></pre>
+</doc-codeblock></div>
+<h3 id="outgoing-message-status-updates-body-parameters">Outgoing message status updates body parameters</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Data type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message_id</td>
+<td>Message ID</td>
+<td>String</td>
+</tr>
+<tr>
+<td>event</td>
+<td><code translate="no" v-pre>status_update</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td>event_data</td>
+<td>Object <code translate="no" v-pre>{status: &quot;sent&quot;|&quot;delivered&quot;|&quot;read&quot;|&quot;failed&quot;, event: &quot;status_update&quot;, error: [error details when failed]}, provider_err_obj: [full error details from provider when failed]</code>. Only WhatsApp channels support the <code translate="no" v-pre>read</code> status.</td>
+<td>Object</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="examples">Examples</h4>
+<h4 id="successfully-sent-message">Successfully sent message</h4>
+<div id="successfully-sent-message-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">{
+  &quot;message_id&quot;: &quot;MM2aa0db1b276eaeaa5d730d5aa34167f2&quot;,
+  &quot;event&quot;: &quot;status_update&quot;,
+  &quot;event_data&quot;: {
+    &quot;status&quot;: &quot;sent&quot;
+  }
+}</code></pre>
+</doc-codeblock></div>
+<h4 id="successfully-delivered-message">Successfully delivered message</h4>
+<div id="successfully-delivered-message-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">{
+  &quot;message_id&quot;: &quot;MM2aa0db1b276eaeaa5d730d5aa34167f2&quot;,
+  &quot;event&quot;: &quot;status_update&quot;,
+  &quot;event_data&quot;: {
+    &quot;status&quot;: &quot;delivered&quot;
+  }
+}</code></pre>
+</doc-codeblock></div>
+<h4 id="failed-message">Failed message</h4>
+<div id="failed-message-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">{
+  &quot;message_id&quot;: &quot;MM2aa0db1b276eaeaa5d730d5aa34167f2&quot;,
+  &quot;event&quot;: &quot;status_update&quot;,
+  &quot;event_data&quot;: {
+    &quot;status&quot;: &quot;failed&quot;,
+    &quot;error&quot;: {
+      &quot;code&quot;: 21614,
+      &quot;message&quot;: &quot;You have attempted to send a message to a number that is either a landline number or is an invalid number. (code: 21614)&quot;
+    },
+    &quot;provider_err_obj&quot;: {
+      &quot;status&quot;: 400,
+      &quot;code&quot;: 21614,
+      &quot;moreInfo&quot;: &quot;https://www.twilio.com/docs/errors/21614&quot;,
+      &quot;error&quot;: true
+    }
+  }
+}</code></pre>
+</doc-codeblock></div>
 
                 
                 <!-- Required only on API pages -->

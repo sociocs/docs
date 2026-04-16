@@ -16,6 +16,7 @@ Name | Value | Data type | Required?
 platform | A value that identifies the platform hosting the endpoint (e.g., "salesforce") | String | Yes
 provider | `twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp) | String | Yes
 channel_key | Channel key value from *Profile & settings -> API* | String | Yes
+events | Array of event types to listen to. <br />`messages` to receiving incoming messages, <br /> `status_updates` to receive status updates for outgoing messages. | Array of string | No. Defaults to `["messages"]`.
 subscriber_reference_id | Unique identifier for the subscription. If you call the API again with the same value for this field, it will update the existing subscription. | String | Yes
 webhook_url | Webhook endpoint URL | String | URL
 
@@ -58,6 +59,7 @@ curl --location --request POST 'https://api.sociocs.com/webhook-subscriptions' \
     "platform": "salesforce",
     "provider": "twlo",
     "channel_key": "[your channel key]",
+    "events": ["messages", "status_updates"],
     "subscriber_reference_id": "ABC1234567890XYZ",
     "webhook_url": "https://example.com/incoming"  
 }'
