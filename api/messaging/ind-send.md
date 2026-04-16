@@ -1,0 +1,788 @@
+- Send a message on Twilio SMS, Twilio WhatsApp or Gupshup WhatsApp channel.
+- You can also send an image, a video or a file.
+- You can schedule the message to be sent at a future date and time.
+- Optionally, you can also save the recipient in a contact list.
+- Calling this API with a future schedule date will create a scheduled message, which you can also see and update on app.sociocs.com -> Outbound -> Scheduled.
+
+## Method
+
+[!badge POST]
+
+## Path
+
+`/message`
+
+## Body parameters
+
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
+provider | `twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp) | String | Yes
+channel_key | Channel key value from *Profile & settings -> API* | String | Yes
+to | Phone number starting with the country code with or without leading plus. e.g. `+16175551212` or `16175551212` | String | Yes
+name | Recipient name | String | No
+text | Message text | String | No (when image_url, image_urls or file_url or template is present)
+image_url | Publicly accessible image URL. Supported only when provider is `twlo`. | String | No (when text, video_url or file_url or template is present)
+video_url | Publicly accessible video URL. Supported only when provider is `twlo`. | String | No (when text, image_url or file_url or template is present)
+file_url | Publicly accessible file URL. Supported only when provider is `twlo`. | String | No (when text, image_url or video_url or template is present)
+template | Object with template ID and variables. Used only when provider is either `twlowa` or `gswa`. See below for object format for each provider. | Object | No (when text, image_url or video_url or file_url is present)
+contact_saving | Object with instruction to save phone number and name as a contact after sending the message. See below | Object | No
+schedule | ISO 8601 date & time (e.g., "2006-01-02T15:04:05-04:00") | String | No
+user_id | Sociocs user ID to show that user as sender of the message. When not provided, message is show as sent by `Sociocs API`. Use [/team-members](/api/team-members/list.md) endpoint to find out User IDs. | String | No
+
+### template
+
+This field is used for passing template details when sending a WhatsApp template message. Applicable only when provider is either `twlowa` or `gswa`.
+
+#### template for provider `twlowa`
+
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
+id | Template SID from Twilio Content Template Builder | String | Yes
+variables | Key value pair object with all the variables in the template. <br/><br/>Example: <br/>`{ "1": "John", "2": "john@example.com", "3": "11-Jul-2024" }` | Object | Yes (only when there are variables in the template)
+
+#### template for provider `gswa`
+
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
+id | Template ID for the template created in the Gupshup console | String | Yes
+variables | Object with `MEDIA_URL` and/or key value pair object maps for each component (`Header`, `Body`, `Buttons`) with variables in the template. <br/><br/>Example: <br/>`{ "MEDIA_URL": "https://placehold.co/600x400", "Header": { "1": "John"}, "Body": { "1": "john@example.com", "2": "11-Jul-2024"}, "Buttons": {"1": "Quick Reply Text"} }` | Object | Yes (only when there are variables in the template)
+
+### contact_saving
+
+This field is for passing instruction to save phone number and name as a contact. If the contact already exists, it will be updated. Extra custom fields can also be passed.
+
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
+save | `true` - Save phone number, name and extra fields as a contact, <br /> `false` - Skip saving as contact | Boolean | No (defaults to `false`)
+list_id | `0` - to add to "All Contacts" or <br/> List ID - to add to a contact list (Use [/lists](/api/contact-lists/get/) endpoint to get all the contact lists) | Integer | No (defaults to `0`)
+extra_fields | Key value pair object with additional custom fields (e.g. `{ "email_address": "john@example.com", "id": 987123 }`) | Object | No
+
+## Response
+
+### HTTP status codes
+
+{.compact}
+Code | Remarks
+--- | ---
+200 | Request was successful.
+400 | Validation error or request body was incorrectly formatted.
+401 | Authentication failed. Check `apikey` header.
+404 | Requested API endpoint not found.
+429 | The rate limit has been reached.
+500-511 | There was a problem processing the request on our server. Try again later.
+
+### Response object
+
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
+status | `success` or `error` | -
+errors | Array of object `{ msg: [error detail] }` | Only present when status is `error`.
+data | Object `{ message_id: [new message id] }` | Only present when status is `success`.
+
+## Code samples
+
+### Sending only text content
+
++++ cURL
+
+```shell
+curl --location --request POST 'https://api.sociocs.com/message' \
+--header 'apikey: your_api_key' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "provider": "twlo",
+    "channel_key": "your_channel_key",
+    "to": "phone_number",
+    "name": "recipient_name",
+    "text": "message"
+}'
+```
+
++++ cURL (Windows)
+
+```shell
+curl --location "https://api.sociocs.com/message" --header "Content-Type: application/json" --header "apikey: your_api_key" --data "{ \"provider\": \"twlo\", \"channel_key\": \"your_channel_key\", \"to\": \"phone_number\", \"name\": \"recipient_name\", \"text\": \"message\" }"
+```
+
++++ C#
+
+```c#
+var client = new HttpClient();
+var request = new HttpRequestMessage(HttpMethod.Post, "https://api.sociocs.com/message");
+request.Headers.Add("apikey", "your_api_key");
+var content = new StringContent("{ \"provider\": \"twlo\", \"channel_key\": \"your_channel_key\", \"to\": \"phone_number\", \"name\": \"recipient_name\", \"text\": \"message\" }", null, "application/json");
+request.Content = content;
+var response = await client.SendAsync(request);
+response.EnsureSuccessStatusCode();
+Console.WriteLine(await response.Content.ReadAsStringAsync());
+
+```
+
++++ Dart
+
+```dart
+var headers = {
+  'Content-Type': 'application/json',
+  'apikey': 'your_api_key'
+};
+
+var request = http.Request('POST', Uri.parse('https://api.sociocs.com/message'));
+
+request.body = json.encode({
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "text": "message"
+});
+
+request.headers.addAll(headers);
+
+http.StreamedResponse response = await request.send();
+
+if (response.statusCode == 200) {
+  print(await response.stream.bytesToString());
+}
+else {
+  print(response.reasonPhrase);
+}
+```
+
++++ Go
+
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.sociocs.com/message"
+  method := "POST"
+
+  payload := strings.NewReader(`{`+"
+"+`
+    "provider": "twlo",`+"
+"+`
+    "channel_key": "your_channel_key",`+"
+"+`
+    "to": "phone_number",`+"
+"+`
+    "name": "recipient_name",`+"
+"+`
+    "text": "message"`+"
+"+`
+}`)
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Content-Type", "application/json")
+  req.Header.Add("apikey", "your_api_key")
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+```
+
++++ Java
+
+```java
+// This sample uses OkHttp library
+OkHttpClient client = new OkHttpClient().newBuilder()
+  .build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, "{\r\n    \"provider\": \"twlo\",\r\n    \"channel_key\": \"your_channel_key\",\r\n    \"to\": \"phone_number\",\r\n    \"name\": \"recipient_name\",\r\n    \"text\": \"message\"\r\n}");
+Request request = new Request.Builder()
+  .url("https://api.sociocs.com/message")
+  .method("POST", body)
+  .addHeader("Content-Type", "application/json")
+  .addHeader("apikey", "your_api_key")
+  .build();
+Response response = client.newCall(request).execute();
+```
+
++++ Node.js
+
+```javascript
+// This sample uses Axios library
+const axios = require('axios');
+let data = JSON.stringify({
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "text": "message"
+});
+
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://api.sociocs.com/message',
+  headers: { 
+    'Content-Type': 'application/json', 
+    'apikey': 'your_api_key'
+  },
+  data : data
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
+
+```
+
++++ PHP
+
+```php
+<?php
+// This sample uses Guzzle library
+$client = new Client();
+$headers = [
+  'Content-Type' => 'application/json',
+  'apikey' => 'your_api_key'
+];
+$body = '{
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "text": "message"
+}';
+$request = new Request('POST', 'https://api.sociocs.com/message', $headers, $body);
+$res = $client->sendAsync($request)->wait();
+echo $res->getBody();
+```
+
++++ Python
+
+```python
+# This sample uses Requests library
+import requests
+import json
+
+url = "https://api.sociocs.com/message"
+
+payload = json.dumps({
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "text": "message"
+})
+headers = {
+  'Content-Type': 'application/json',
+  'apikey': 'your_api_key'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
++++
+
+### Sending text & image
+
++++ cURL
+
+```shell
+curl --location --request POST 'https://api.sociocs.com/message' \
+--header 'apikey: your_api_key' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "provider": "twlo",
+    "channel_key": "your_channel_key",
+    "to": "phone_number",
+    "name": "recipient_name",
+    "text": "message",
+    "image_url": "https://fastly.picsum.photos/id/1068/200/300.jpg?hmac=ICIwYXRGTpDxBPZAI7V8YxGtBBanV8Dfbe_DLNKtYcE"
+}'
+```
+
++++ cURL (Windows)
+
+```shell
+curl --location "https://api.sociocs.com/message" --header "Content-Type: application/json" --header "apikey: your_api_key" --data "{ \"provider\": \"twlo\", \"channel_key\": \"your_channel_key\", \"to\": \"phone_number\", \"name\": \"recipient_name\", \"text\": \"message\", \"image_url\": \"https://fastly.picsum.photos/id/1068/200/300.jpg?hmac=ICIwYXRGTpDxBPZAI7V8YxGtBBanV8Dfbe_DLNKtYcE\"}"
+```
+
++++ C#
+
+```c#
+var client = new HttpClient();
+var request = new HttpRequestMessage(HttpMethod.Post, "https://api.sociocs.com/message");
+request.Headers.Add("apikey", "your_api_key");
+var content = new StringContent("{ \"provider\": \"twlo\", \"channel_key\": \"your_channel_key\", \"to\": \"phone_number\", \"name\": \"recipient_name\", \"text\": \"message\", \"image_url\": \"https://fastly.picsum.photos/id/1068/200/300.jpg?hmac=ICIwYXRGTpDxBPZAI7V8YxGtBBanV8Dfbe_DLNKtYcE\" }", null, "application/json");
+request.Content = content;
+var response = await client.SendAsync(request);
+response.EnsureSuccessStatusCode();
+Console.WriteLine(await response.Content.ReadAsStringAsync());
+
+```
+
++++ Dart
+
+```dart
+var headers = {
+  'Content-Type': 'application/json',
+  'apikey': 'your_api_key'
+};
+
+var request = http.Request('POST', Uri.parse('https://api.sociocs.com/message'));
+
+request.body = json.encode({
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "text": "message",
+  "image_url": "https://fastly.picsum.photos/id/1068/200/300.jpg?hmac=ICIwYXRGTpDxBPZAI7V8YxGtBBanV8Dfbe_DLNKtYcE"
+});
+
+request.headers.addAll(headers);
+
+http.StreamedResponse response = await request.send();
+
+if (response.statusCode == 200) {
+  print(await response.stream.bytesToString());
+}
+else {
+  print(response.reasonPhrase);
+}
+```
+
++++ Go
+
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.sociocs.com/message"
+  method := "POST"
+
+  payload := strings.NewReader(`{`+"
+"+`
+    "provider": "twlo",`+"
+"+`
+    "channel_key": "your_channel_key",`+"
+"+`
+    "to": "phone_number",`+"
+"+`
+    "name": "recipient_name",`+"
+"+`
+    "text": "message"`+"
+"+`
+    "image_url": "https://fastly.picsum.photos/id/1068/200/300.jpg?hmac=ICIwYXRGTpDxBPZAI7V8YxGtBBanV8Dfbe_DLNKtYcE"`+"
+"+`
+}`)
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Content-Type", "application/json")
+  req.Header.Add("apikey", "your_api_key")
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+```
+
++++ Java
+
+```java
+// This sample uses OkHttp library
+OkHttpClient client = new OkHttpClient().newBuilder()
+  .build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, "{\r\n    \"provider\": \"twlo\",\r\n    \"channel_key\": \"your_channel_key\",\r\n    \"to\": \"phone_number\",\r\n    \"name\": \"recipient_name\",\r\n    \"text\": \"message\"\r\n}");
+Request request = new Request.Builder()
+  .url("https://api.sociocs.com/message")
+  .method("POST", body)
+  .addHeader("Content-Type", "application/json")
+  .addHeader("apikey", "your_api_key")
+  .build();
+Response response = client.newCall(request).execute();
+```
+
++++ Node.js
+
+```javascript
+// This sample uses Axios library
+const axios = require('axios');
+let data = JSON.stringify({
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "text": "message",
+  "image_url": "https://fastly.picsum.photos/id/1068/200/300.jpg?hmac=ICIwYXRGTpDxBPZAI7V8YxGtBBanV8Dfbe_DLNKtYcE"
+});
+
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://api.sociocs.com/message',
+  headers: { 
+    'Content-Type': 'application/json', 
+    'apikey': 'your_api_key'
+  },
+  data : data
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
+
+```
+
++++ PHP
+
+```php
+<?php
+// This sample uses Guzzle library
+$client = new Client();
+$headers = [
+  'Content-Type' => 'application/json',
+  'apikey' => 'your_api_key'
+];
+$body = '{
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "text": "message".
+  "image_url": "https://fastly.picsum.photos/id/1068/200/300.jpg?hmac=ICIwYXRGTpDxBPZAI7V8YxGtBBanV8Dfbe_DLNKtYcE"
+}';
+$request = new Request('POST', 'https://api.sociocs.com/message', $headers, $body);
+$res = $client->sendAsync($request)->wait();
+echo $res->getBody();
+```
+
++++ Python
+
+```python
+# This sample uses Requests library
+import requests
+import json
+
+url = "https://api.sociocs.com/message"
+
+payload = json.dumps({
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "text": "message",
+  "image_url": "https://fastly.picsum.photos/id/1068/200/300.jpg?hmac=ICIwYXRGTpDxBPZAI7V8YxGtBBanV8Dfbe_DLNKtYcE"
+})
+headers = {
+  'Content-Type': 'application/json',
+  'apikey': 'your_api_key'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
++++
+
+### Sending only an image
+
++++ cURL
+
+```shell
+curl --location --request POST 'https://api.sociocs.com/message' \
+--header 'apikey: your_api_key' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "provider": "twlo",
+    "channel_key": "your_channel_key",
+    "to": "phone_number",
+    "name": "recipient_name",
+    "image_url": "https://fastly.picsum.photos/id/701/200/300.jpg?hmac=gVWdD9Rh_J0iGXpXOJAN7MZpGPrpeHX_M5JwGGvTSsI"
+}'
+```
+
++++ cURL (Windows)
+
+```shell
+curl --location "https://api.sociocs.com/message" --header "Content-Type: application/json" --header "apikey: your_api_key" --data "{ \"provider\": \"twlo\", \"channel_key\": \"your_channel_key\", \"to\": \"phone_number\", \"name\": \"recipient_name\", \"image_url\": \"https://fastly.picsum.photos/id/701/200/300.jpg?hmac=gVWdD9Rh_J0iGXpXOJAN7MZpGPrpeHX_M5JwGGvTSsI\" }"
+```
+
++++ C#
+
+```c#
+var client = new HttpClient();
+var request = new HttpRequestMessage(HttpMethod.Post, "https://api.sociocs.com/message");
+request.Headers.Add("apikey", "your_api_key");
+var content = new StringContent("{ \"provider\": \"twlo\", \"channel_key\": \"your_channel_key\", \"to\": \"phone_number\", \"name\": \"recipient_name\", \"image_url\": \"https://fastly.picsum.photos/id/701/200/300.jpg?hmac=gVWdD9Rh_J0iGXpXOJAN7MZpGPrpeHX_M5JwGGvTSsI\" }", null, "application/json");
+request.Content = content;
+var response = await client.SendAsync(request);
+response.EnsureSuccessStatusCode();
+Console.WriteLine(await response.Content.ReadAsStringAsync());
+
+```
+
++++ Dart
+
+```dart
+var headers = {
+  'Content-Type': 'application/json',
+  'apikey': 'your_api_key'
+};
+var request = http.Request('POST', Uri.parse('https://api.sociocs.com/message'));
+request.body = json.encode({
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "image_url": "https://fastly.picsum.photos/id/701/200/300.jpg?hmac=gVWdD9Rh_J0iGXpXOJAN7MZpGPrpeHX_M5JwGGvTSsI",
+});
+request.headers.addAll(headers);
+
+http.StreamedResponse response = await request.send();
+
+if (response.statusCode == 200) {
+  print(await response.stream.bytesToString());
+}
+else {
+  print(response.reasonPhrase);
+}
+```
+
++++ Go
+
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.sociocs.com/message"
+  method := "POST"
+
+  payload := strings.NewReader(`{`+"
+"+`
+    "provider": "twlo",`+"
+"+`
+    "channel_key": "your_channel_key",`+"
+"+`
+    "to": "phone_number",`+"
+"+`
+    "name": "recipient_name",`+"
+"+`
+    "image_url": "https://fastly.picsum.photos/id/701/200/300.jpg?hmac=gVWdD9Rh_J0iGXpXOJAN7MZpGPrpeHX_M5JwGGvTSsI",`+"
+"+`
+}`)
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Content-Type", "application/json")
+  req.Header.Add("apikey", "your_api_key")
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+```
+
++++ Java
+
+```java
+// This sample uses OkHttp library
+OkHttpClient client = new OkHttpClient().newBuilder()
+  .build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, "{\r\n    \"provider\": \"twlo\",\r\n    \"channel_key\": \"your_channel_key\",\r\n    \"to\": \"phone_number\",\r\n    \"name\": \"recipient_name\",\r\n    \"image_url\": \"https://fastly.picsum.photos/id/701/200/300.jpg?hmac=gVWdD9Rh_J0iGXpXOJAN7MZpGPrpeHX_M5JwGGvTSsI\",\r\n }");
+Request request = new Request.Builder()
+  .url("https://api.sociocs.com/message")
+  .method("POST", body)
+  .addHeader("Content-Type", "application/json")
+  .addHeader("apikey", "your_api_key")
+  .build();
+Response response = client.newCall(request).execute();
+```
+
++++ Node.js
+
+```javascript
+// This sample uses Axios library
+const axios = require('axios');
+let data = JSON.stringify({
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "image_url": "https://fastly.picsum.photos/id/701/200/300.jpg?hmac=gVWdD9Rh_J0iGXpXOJAN7MZpGPrpeHX_M5JwGGvTSsI",
+});
+
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://api.sociocs.com/message',
+  headers: { 
+    'Content-Type': 'application/json', 
+    'apikey': 'your_api_key'
+  },
+  data : data
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
+```
+
++++ PHP
+
+```php
+<?php
+// This sample uses Guzzle library
+$client = new Client();
+$headers = [
+  'Content-Type' => 'application/json',
+  'apikey' => 'your_api_key'
+];
+$body = '{
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "image_url": "https://fastly.picsum.photos/id/701/200/300.jpg?hmac=gVWdD9Rh_J0iGXpXOJAN7MZpGPrpeHX_M5JwGGvTSsI"
+}';
+$request = new Request('POST', 'https://api.sociocs.com/message', $headers, $body);
+$res = $client->sendAsync($request)->wait();
+echo $res->getBody();
+```
+
++++ Python
+
+```python
+# This sample uses Requests library
+import requests
+import json
+
+url = "https://api.sociocs.com/message"
+
+payload = json.dumps({
+  "provider": "twlo",
+  "channel_key": "your_channel_key",
+  "to": "phone_number",
+  "name": "recipient_name",
+  "image_url": "https://fastly.picsum.photos/id/701/200/300.jpg?hmac=gVWdD9Rh_J0iGXpXOJAN7MZpGPrpeHX_M5JwGGvTSsI"
+})
+headers = {
+  'Content-Type': 'application/json',
+  'apikey': 'your_api_key'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
++++
+
+### Response object examples
+
+#### When the API call was successful
+
+```json
+{
+    "status": "success",
+    "data": { "message_id": "Xyz12345" }
+}
+```
+
+#### When the API call was unsuccessful
+
+```json
+{
+    "status": "error",
+    "errors": [{ "msg": "Invalid channel_key." }]
+}
+```

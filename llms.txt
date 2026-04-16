@@ -1,0 +1,124 @@
+﻿# Sociocs Documentation
+
+> Sociocs is a single inbox for all of your customer communication needs.
+
+- [Sociocs Documentation](https://docs.sociocs.com/readme.md): Sociocs Documentation
+- [Getting started](https://docs.sociocs.com/getting-started.md): Getting started with Sociocs is very easy.
+- [Bulk messaging](https://docs.sociocs.com/bulk-messaging.md): This functionality requires a PAID or FREE TRIAL account on Sociocs.
+- [Bulk calling](https://docs.sociocs.com/bulk-calling.md): This functionality requires a PAID or FREE TRIAL account on Sociocs.
+
+## Contacts
+
+- [Introduction](https://docs.sociocs.com/contacts/introduction.md): This functionality requires a PAID or FREE TRIAL account on Sociocs.
+- [Contact lists](https://docs.sociocs.com/contacts/contact-lists.md): Your account already comes with a default contact list named "All contacts". You can create additional contact lists to group different contacts as per your needs.
+- [Add contacts](https://docs.sociocs.com/contacts/add-contacts.md): There are multiple ways to add contacts to a contact list.
+
+## Profile & settings
+
+- [Business profile](https://docs.sociocs.com/settings/business-profile.md): Click on the dropdown menu on top right.
+- [My profile](https://docs.sociocs.com/settings/my-profile.md): Click on the dropdown menu on top right.
+- [Preferences](https://docs.sociocs.com/settings/preferences.md): All preferences are at the organization level, which means they apply to all the users in your business account.
+- [Notifications](https://docs.sociocs.com/settings/notifications.md): We send notifications when new messages arrive in your inbox. You can enable or disable them at any time. To ensure quick replies to your customers, we recommend keeping notifications on.
+
+## Integrations
+
+### ActiveCampaign
+
+- [ActiveCampaign Integrations](https://docs.sociocs.com/integrations/activecampaign/index.md): There are times when you need to send SMS and/or WhatsApp messages to your ActiveCampaign contacts. There are two ways to handle this using Sociocs.
+- [Sociocs app for ActiveCampaign automation](https://docs.sociocs.com/integrations/activecampaign/send-messages.md): This app adds ability for you to send text/SMS (using your Twilio or Telnyx account) or WhatsApp messages (using your Twilio or Gupshup account) from your ActiveCampaign automation.
+- [Send WhatsApp Message Button](https://docs.sociocs.com/integrations/activecampaign/send-whatsapp-message-button.md): You can send ad-hoc WhatsApp messages to your contacts directly from ActiveCampaign contact details page after you install our Chrome extension.
+
+### Bubble
+
+- [Bubble.io Integrations](https://docs.sociocs.com/integrations/bubble/index.md): There are multiple native Bubble.io integrations supported by Sociocs.
+- [Bubble plugin :: Sociocs - Click to Chat by Text](https://docs.sociocs.com/integrations/bubble/plugin-c2csms.md): This plugin adds a chat bubble on your website that draw user's attention, and gives them an easy way to reach out to you. It converts an inquiry into SMS / text messaging based conversation, so that your user doesn't have to wait on the website for a response.
+- [Bubble plugin :: Sociocs - Click to Chat by WhatsApp](https://docs.sociocs.com/integrations/bubble/plugin-c2cwa.md): This plugin adds a chat bubble on your website that draw user's attention, and gives them an easy way to reach out to you. It converts an inquiry into WhatsApp based conversation, so that your user doesn't have to wait on the website for a response.
+- [Bubble plugin :: Sociocs - Form](https://docs.sociocs.com/integrations/bubble/plugin-form.md): Form plugin (e.g. Contact Us, Appointment Request, Pricing Inquiry form etc.) for Bubble.
+- [Bubble plugin :: Sociocs - Send Text Messages](https://docs.sociocs.com/integrations/bubble/plugin-send-text-messages.md): This plugin itself is FREE, however, it requires a FREE TRIAL or PAID account on Sociocs to use the necessary API for this plugin.
+
+### Customer.io
+
+- [Customer.io Integrations](https://docs.sociocs.com/integrations/customer.io/index.md): There are different types of integrations supported.
+- [Text/SMS Campaign from Customer.io](https://docs.sociocs.com/integrations/customer.io/sms-campaign.md): You can send Text/SMS campaigns from Customer.io using Sociocs and manage the conversation in the Sociocs inbox when someone replies.
+- [WhatsApp Campaign from Customer.io](https://docs.sociocs.com/integrations/customer.io/wa-campaign.md): You can send WhatsApp campaigns from Customer.io using Sociocs and manage the conversation in the Sociocs inbox when someone replies.
+- [Sync Customer.io contacts with Sociocs](https://docs.sociocs.com/integrations/customer.io/contact-sync.md): Sync Customer.io people/contacts with Sociocs using a Customer.io campaign.
+- [Keap integration with Sociocs](https://docs.sociocs.com/integrations/keap.md): Add ability to send text/SMS (using your Twilio account) or WhatsApp messages (using your Twilio or Gupshup account) from your Keap automation.
+
+### Webflow
+
+- [Webflow Integrations](https://docs.sociocs.com/integrations/webflow/index.md): There are two native Webflow integrations supported by Sociocs.
+- [Webflow :: Sociocs - Click to Chat by Text](https://docs.sociocs.com/integrations/webflow/c2csms.md): Sociocs Web Chat plugin adds a chat bubble on your website that draw user's attention, and gives them an easy way to reach out to you. It converts an inquiry into SMS / text messaging based conversation, so that your user doesn't have to wait on the website for a response.
+- [Webflow :: Sociocs - Form](https://docs.sociocs.com/integrations/webflow/form.md): Form integration (e.g. Contact Us, Appointment Request, Pricing Inquiry form etc.) for Webflow websites.
+
+### WordPress
+
+- [WordPress Integrations](https://docs.sociocs.com/integrations/wordpress/index.md): There are two native WordPress integrations supported by Sociocs.
+- [WordPress :: Sociocs - Click to Chat by Text/SMS](https://docs.sociocs.com/integrations/wordpress/c2csms.md): Sociocs Web Chat plugin adds a chat bubble on your website that draw user's attention, and gives them an easy way to reach out to you. It converts an inquiry into SMS / text messaging based conversation, so that your user doesn't have to wait on the website for a response.
+- [WordPress :: Sociocs - Form](https://docs.sociocs.com/integrations/wordpress/form.md): Form integration (e.g. Contact Us, Appointment Request, Pricing Inquiry form etc.) for WordPress.
+
+### Zapier
+
+- [Introduction](https://docs.sociocs.com/integrations/zapier/introduction.md): Sociocs supports being used as a trigger or as an action handler in Zapier.
+
+## API
+
+- [Introduction](https://docs.sociocs.com/api/introduction.md): You can use our REST APIs to initiate conversations directly from your own platform. Request parameters and responses are in JSON format.
+- [Authentication](https://docs.sociocs.com/api/auhentication.md): API calls are authenticated using API key.
+
+### Channels
+
+- [Get channels](https://docs.sociocs.com/api/channels/list.md): Get the list of channels for the given provider.
+- [Get channel](https://docs.sociocs.com/api/channels/get.md): Get a channel.
+
+### Contact Lists
+
+- [Create contact list](https://docs.sociocs.com/api/contact-lists/create.md): Create a new contact list.
+- [Get contact lists](https://docs.sociocs.com/api/contact-lists/get.md): Get all the contact lists.
+- [Update contact list](https://docs.sociocs.com/api/contact-lists/update.md): Update an existing contact list.
+- [Delete contact list](https://docs.sociocs.com/api/contact-lists/delete.md): Delete an existing contact list.
+
+### Contacts
+
+- [Add contact](https://docs.sociocs.com/api/contacts/add.md): Add a new contact. When a given phone number already exists, it updates existing contact. If existing contact gets updated, all information gets overwritten, including all extra fields.
+- [Add contacts bulk](https://docs.sociocs.com/api/contacts/add-bulk.md): Add new contacts in bulk. When a given phone number already exists, it updates existing contact. If existing contact gets updated, all information gets overwritten, including all extra fields.
+- [Get contacts](https://docs.sociocs.com/api/contacts/list.md): Get contacts from 'All Contacts' or belonging to a list.
+- [Search contacts](https://docs.sociocs.com/api/contacts/search.md): Search contacts by partial/full name or phone number.
+- [Get contact](https://docs.sociocs.com/api/contacts/get.md): Get a contact.
+- [Update contact](https://docs.sociocs.com/api/contacts/update.md): Update a contact.
+- [Delete contact](https://docs.sociocs.com/api/contacts/delete.md): Delete a contact.
+- [Block contact](https://docs.sociocs.com/api/contacts/block.md): Block bulk & automated messages to a contact. Incoming messages are not blocked.
+- [Unblock contact](https://docs.sociocs.com/api/contacts/unblock.md): Unblock bulk & automated messages to a contact.
+- [Is contact blocked](https://docs.sociocs.com/api/contacts/is-blocked.md): Check if a contact is blocked.
+- [Add contacts to list](https://docs.sociocs.com/api/contacts/add-to-list.md): Add one or more contacts to a contact list using phone numbers.
+- [Move contacts to list](https://docs.sociocs.com/api/contacts/move-to-list.md): Move one or more contacts from one contact list to another using phone numbers.
+
+### Messaging
+
+- [Send message](https://docs.sociocs.com/api/messaging/ind-send.md): Send a message on Twilio SMS, Twilio WhatsApp or Gupshup WhatsApp channel.
+- [Save incoming message](https://docs.sociocs.com/api/messaging/ind-save-incoming.md): Save a message in the inbox. You can use it to save a message received on an external platform or create a mock message with information you may need during the conversation.
+- [Get scheduled messages](https://docs.sociocs.com/api/messaging/ind-list-scheduled.md): Get the list of scheduled messages. The list will have max 100 records, ordered by the scheduled date in descending order. Pagination is not available at the moment.
+- [Delete scheduled message](https://docs.sociocs.com/api/messaging/ind-delete-scheduled.md): Delete a scheduled message.
+- [Send bulk messages](https://docs.sociocs.com/api/messaging/bulk-send.md): Send messages in bulk on Twilio SMS, Twilio WhatsApp or Gupshup WhatsApp channel.
+- [Get bulk messaging jobs](https://docs.sociocs.com/api/messaging/bulk-list.md): Get the list of bulk messaging jobs. The list will have max 100 records, ordered by the scheduled date in descending order. Pagination is not available at the moment.
+- [Reschedule bulk messaging job](https://docs.sociocs.com/api/messaging/bulk-put.md): Reschedule a bulk messaging job.
+- [Delete bulk messaging job](https://docs.sociocs.com/api/messaging/bulk-delete.md): Delete a bulk messaging job.
+- [Get messages](https://docs.sociocs.com/api/messaging/get.md): Get all the messages.
+- [Get unreplied messages](https://docs.sociocs.com/api/messaging/get-unreplied.md): Get all the unreplied messages from last 90 days.
+- [Search messages](https://docs.sociocs.com/api/messaging/search.md): Get all the unreplied messages.
+
+### Team Members
+
+- [Get team members](https://docs.sociocs.com/api/team-members/list.md): Get the list of all the team members.
+
+### Webhooks
+
+- [Information](https://docs.sociocs.com/api/webhooks/introduction.md): Webhooks are the REST APIs you created yourself or offered by a third-party software, which get called when a message is received in a Sociocs channel.
+- [Subscribe](https://docs.sociocs.com/api/webhooks/add.md): Subscribe a webhook endpoint to receive incoming messages received on your channel. You can also subscribe to status updates for outgoing messages.
+- [Get subscriptions](https://docs.sociocs.com/api/webhooks/list.md): Get the list of subscriptions.
+- [Get subscription](https://docs.sociocs.com/api/webhooks/get.md): Get a subscription.
+- [Unsubscribe](https://docs.sociocs.com/api/webhooks/delete.md): Unsubscribe a webhook to stop receiving messages.
+
+## Miscellaneous
+
+- [Dynamic fields](https://docs.sociocs.com/miscellaneous/dynamic-fields.md): Dynamic fields help personalize the messages by applying values from the matching fields in the data source for each record.
+- [Translation languages](https://docs.sociocs.com/miscellaneous/translation-languages.md): List of languages supported for auto translation. When using auto translation in the , you should use the Language code value when adding language (as a contact Extra field or a column in the uploaded file).

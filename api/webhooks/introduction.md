@@ -1,0 +1,41 @@
+Webhooks are the REST APIs you created yourself or offered by a third-party software, which get called when a message is received in a Sociocs channel.
+
+URL of the REST API is referred to as webhook endpoint. You can set multiple webhooks endpoints for the same channel, or the same webhook endpoint for multiple channels.
+
+!!!
+As of now, Sociocs calls webhook only for "incoming" messages, that is, for the messages received from someone to your Sociocs connected channel.
+!!!
+
+## Channels supporting webhooks
+
+- SMS (with Twilio)
+- WhatsApp (with Gupshup)
+- WhatsApp (with Twilio)
+
+## How to set it up?
+
+In order for Sociocs to start calling your webhook endpoint on receiving incoming messages, you need to subscribe the endpoint for a specific channel. You can add multiple webhooks for the same channel, or same webhook for multiple channels, depending upon your needs.
+
+## Webhook endpoint invocation details
+
+Sociocs calls the webhook endpoints with an assumption that it's a REST API accepting JSON body parameters.
+
+### Method used
+
+[!badge POST]
+
+### Body parameters
+
+{.compact}
+Name | Value | Data type
+--- | --- | ---
+provider | `twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp) | String
+channel_key | Channel key associated to the webhook | String
+from | Sending phone number | String
+to | Receiving phone number | String
+name | Sender's name (if available) | String
+text | Message text | String
+file_urls | Publicly accessible links to files in the message | Array of String
+image_urls | Publicly accessible links to images in the message | Array of String
+video_urls | Publicly accessible links to videos in the message | Array of String
+contact | Object with contact details (if a contact with the 'from' phone number is found) | Object

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://docs.sociocs.com/sitemap.xml.gz
+Sitemap: https://docs.sociocs.com/sitemap.xml
