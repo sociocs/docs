@@ -81,7 +81,7 @@ Name | Value | Data type
 --- | --- | ---
 message_id | Message ID | String
 event | `status_update` | String
-event_data | Object `{status: "sent"|"delivered"|"read"|"failed", event: "status_update", error: [error details when failed]}, provider_err_obj: [full error details from provider when failed]`. Only WhatsApp channels support the `read` status. | Object
+event_data | Object `{ status: "sent"|"delivered"|"read"|"failed", event: "status_update", error: [error details when failed]},  provider_err_obj: [error object from provider when failed] }` <br/><br/>Note: Only WhatsApp channels support the `read` status. | Object
 
 #### Examples
 
