@@ -22,8 +22,9 @@ You cannot delete a bulk messaging job which is already executing or has already
 
 ## Path parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 job_id | ID of the scheduled bulk messaging job. | Yes
 
 ## Response
@@ -34,8 +35,9 @@ job_id | ID of the scheduled bulk messaging job. | Yes
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 

@@ -18,8 +18,9 @@ Get a subscription.
 
 ## Path parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 subscription_id | Subscription ID | Yes
 
 ## Response
@@ -30,8 +31,9 @@ subscription_id | Subscription ID | Yes
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Subscription object. See below | Only present when status is `success`

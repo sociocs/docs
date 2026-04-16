@@ -18,14 +18,16 @@ Update a contact.
 
 ## Path parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 phone_number | {{include "api/phone-number-value"}} | Yes
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 phone_number_cc | Phone number country dial code (e.g. "1") | String | No
 name | Contact person name | String | No
 extra_fields | {{include "api/contact-extra-fields-value"}} | Object | No
@@ -38,8 +40,9 @@ extra_fields | {{include "api/contact-extra-fields-value"}} | Object | No
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 

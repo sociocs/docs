@@ -18,9 +18,11 @@ Update an existing contact list.
 
 ## Body parameters
 
-| Name | Value             | Data type | Required? {class="compact"} |
-| ---- | ----------------- |
-| name | Contact list name | String    | Yes                         |
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
+id | Contact list ID | String | Yes                         |
+name | Contact list name | String | Yes                         |
 
 ## Response
 
@@ -30,8 +32,9 @@ Update an existing contact list.
 
 ### Response object
 
-| Name | Value | Remarks {class="compact"} |
-| ---- | ----- |
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Object `{ id: [updated contact list's id]}` | Only present when status is `success`

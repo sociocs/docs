@@ -44,6 +44,7 @@ Install "*Contact Form 7*" plugin through the "*Plugins*" menu in your admin das
 
 1. Fill the API information as explained below:
 
+    {.compact}
     Field | Value
     --- | ---
     Title | Name for this API entry. e.g. "Contact us form to Sociocs"

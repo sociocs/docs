@@ -18,8 +18,9 @@ Block bulk & automated messages to a contact. Incoming messages are not blocked.
 
 ## Path parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 phone_number | {{include "api/phone-number-value"}} | Yes
 
 ## Response
@@ -30,8 +31,9 @@ phone_number | {{include "api/phone-number-value"}} | Yes
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 

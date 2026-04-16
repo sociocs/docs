@@ -24,8 +24,9 @@ Delete an existing contact list.
 
 ### Response object
 
-| Name | Value | Remarks {class="compact"} |
-| ---- | ----- |
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Object `{ id: [deleted contact list's id]}` | Only present when status is `success`

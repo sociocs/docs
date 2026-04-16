@@ -5,7 +5,7 @@ data:
     path: "/webhook-subscriptions"
 ---
 
-Subscribe a webhook endpoint to receive incoming messages received on your channel.
+Subscribe a webhook endpoint to receive incoming messages received on your channel. You can also subscribe to status updates for outgoing messages.
 
 ## Method
 
@@ -17,8 +17,9 @@ Subscribe a webhook endpoint to receive incoming messages received on your chann
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 platform | A value that identifies the platform hosting the endpoint (e.g., "salesforce") | String | Yes
 {{include "param-row/provider"}}
 {{include "param-row/channel-key"}}
@@ -37,8 +38,9 @@ If you call this API with the same `subscriber_reference_id`, it will update the
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Object `{ id: [subscription id]}` | Only present when status is `success`

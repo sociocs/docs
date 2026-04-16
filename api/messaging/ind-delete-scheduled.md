@@ -22,8 +22,9 @@ You cannot delete a scheduled message which is already being sent or is already 
 
 ## Path parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 message_id | ID of the scheduled message. | Yes
 
 ## Response
@@ -34,8 +35,9 @@ message_id | ID of the scheduled message. | Yes
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 

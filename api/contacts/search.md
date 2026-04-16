@@ -18,8 +18,9 @@ Search contacts by partial/full name or phone number.
 
 ## Query string parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 query | Search term (either partial/full name or phone number). Search is case insensitive. Minimum 2 characters are required. | Yes
 limit | Number of records to return. Max allowed value is 20. | No. Defaults to 20.
 offset | Number of records to skip (for pagination). | No. Defaults to 0.
@@ -32,8 +33,9 @@ offset | Number of records to skip (for pagination). | No. Defaults to 0.
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Array of contact objects. Result is sorted by relevance of the match. | Only present when status is `success`

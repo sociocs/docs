@@ -18,8 +18,9 @@ Get the list of channels for the given provider.
 
 ## Query string parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 provider | {{include "providers"}} | Yes
 
 ## Response
@@ -32,7 +33,8 @@ provider | {{include "providers"}} | Yes
 
 Array of object
 
-Name | Value | Remarks {class="compact"}
+{.compact}
+Name | Value | Remarks
 --- | --- | ---
 id | Channel ID | -
 channel_key | Channel key | This is the same as the id field.

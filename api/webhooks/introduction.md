@@ -31,8 +31,9 @@ Sociocs calls the webhook endpoints with an assumption that it's a REST API acce
 
 ### Body parameters
 
-Name | Value | Data type {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type
+--- | --- | ---
 provider | `twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp) | String
 channel_key | Channel key associated to the webhook | String
 from | Sending phone number | String

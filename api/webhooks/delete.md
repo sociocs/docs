@@ -18,8 +18,9 @@ Unsubscribe a webhook to stop receiving messages.
 
 ## Path parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 subscription_id | Subscription ID | Yes
 
 ## Response
@@ -30,8 +31,9 @@ subscription_id | Subscription ID | Yes
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 

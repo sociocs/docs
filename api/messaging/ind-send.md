@@ -21,8 +21,9 @@ data:
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 provider | `twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp) | String | Yes
 channel_key | Channel key value from *Profile & settings -> API* | String | Yes
 to | {{include "api/phone-number-value"}} | String | Yes
@@ -42,15 +43,17 @@ This field is used for passing template details when sending a WhatsApp template
 
 #### template for provider `twlowa`
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 id | Template SID from Twilio Content Template Builder | String | Yes
 variables | Key value pair object with all the variables in the template. <br/><br/>Example: <br/>`{ "1": "John", "2": "john@example.com", "3": "11-Jul-2024" }` | Object | Yes (only when there are variables in the template)
 
 #### template for provider `gswa`
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 id | Template ID for the template created in the Gupshup console | String | Yes
 variables | Object with `MEDIA_URL` and/or key value pair object maps for each component (`Header`, `Body`, `Buttons`) with variables in the template. <br/><br/>Example: <br/>`{ "MEDIA_URL": "https://placehold.co/600x400", "Header": { "1": "John"}, "Body": { "1": "john@example.com", "2": "11-Jul-2024"}, "Buttons": {"1": "Quick Reply Text"} }` | Object | Yes (only when there are variables in the template)
 
@@ -58,8 +61,9 @@ variables | Object with `MEDIA_URL` and/or key value pair object maps for each c
 
 This field is for passing instruction to save phone number and name as a contact. If the contact already exists, it will be updated. Extra custom fields can also be passed.
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 save | `true` - Save phone number, name and extra fields as a contact, <br /> `false` - Skip saving as contact | Boolean | No (defaults to `false`)
 list_id | {{include "api/contact-list-id-value"}} | Integer | No (defaults to `0`)
 extra_fields | {{include "api/contact-extra-fields-value"}} | Object | No
@@ -72,8 +76,9 @@ extra_fields | {{include "api/contact-extra-fields-value"}} | Object | No
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Object `{ message_id: [new message id] }` | Only present when status is `success`.

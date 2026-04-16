@@ -18,14 +18,16 @@ Add a new contact. When a given phone number already exists, it updates existing
 
 ## Path parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 phone_number | {{include "api/phone-number-value"}} | Yes
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 list_id | {{include "api/contact-list-id-value"}} | Integer | No (defaults to 0)
 phone_number_cc | Phone number country dial code (e.g. "1") | String | No
 name | Contact person name | String | No
@@ -39,8 +41,9 @@ extra_fields | {{include "api/contact-extra-fields-value"}} | Object | No
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Object `{ id: [new contact id]}` | Only present when status is `success`

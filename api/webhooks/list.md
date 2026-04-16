@@ -23,8 +23,9 @@ Get the list of subscriptions.
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Array of subscription object. See below | Only present when status is `success`

@@ -18,8 +18,9 @@ Add one or more contacts to a contact list using phone numbers.
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 dest_list_id | Destination contact list ID | Integer | Yes
 phone_numbers | Array of the phone numbers of the contacts to be added to the list (e.g. `["16317471111"]`) | Array of string | Yes
 
@@ -31,8 +32,9 @@ phone_numbers | Array of the phone numbers of the contacts to be added to the li
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 

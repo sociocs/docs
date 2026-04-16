@@ -18,8 +18,9 @@ Move one or more contacts from one contact list to another using phone numbers.
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 source_list_id | Source contact list ID | Integer | Yes
 dest_list_id | Destination contact list ID | Integer | Yes
 phone_numbers | Array of the phone numbers of the contacts to be moved (e.g. `["16317471111"]`) | Array of string | Yes
@@ -32,8 +33,9 @@ phone_numbers | Array of the phone numbers of the contacts to be moved (e.g. `["
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 

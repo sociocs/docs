@@ -43,7 +43,8 @@ This feature is available for both the FREE and PAID accounts.
 
 1. Enter "*Message text*" (with personalization if you like), and click "*Send*". Below [!badge text="dynamic fields" target="_blank"](/miscellaneous/dynamic-fields.md) supported on the Compose page with this feature. **Dynamic fields are case sensitive.**
 
-    Dynamic field | Remarks {class="compact"}
+    {.compact}
+    Dynamic field | Remarks
     --- | ---
     \{\{BUSINESS_NAME\}\} | Your business name.
     \{\{CUSTOMER_NAME\}\} | Name of the recipient.

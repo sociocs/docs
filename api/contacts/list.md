@@ -18,8 +18,9 @@ Get contacts from 'All Contacts' or belonging to a list.
 
 ## Query string parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 list_id | `0` - to get all Contacts or <br/> List ID - to get contacts from a specific list (Use [/lists](/api/contact-lists/get/) endpoint to get all the contact lists) | No
 limit | Number of records to return. Max allowed value is 1000. | No. Defaults to 1000.
 offset | Number of records to skip (for pagination). | No. Defaults to 0.
@@ -32,8 +33,9 @@ offset | Number of records to skip (for pagination). | No. Defaults to 0.
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Array of contact objects. Result is sorted by the contact ID in ascending order. | Only present when status is `success`

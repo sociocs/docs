@@ -1,4 +1,5 @@
-Name | Value {class="compact"}
+{.compact}
+Name | Value
 --- | ---
 id | Subscription ID
 channel_key | Channel key associated to this webhook

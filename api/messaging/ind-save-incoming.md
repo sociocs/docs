@@ -17,8 +17,9 @@ Save a message in the inbox. You can use it to save a message received on an ext
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 provider | `twlo` (for Twilio SMS). No other providers supported yet. | String | Yes
 channel_key | Channel key value from *Profile & settings -> API*  | String| Yes
 from | {{include "api/phone-number-value"}} | String | Yes
@@ -35,8 +36,9 @@ media_type | MIME type of the media (e.g., `image/png`, `video/mp4`, `applicatio
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 

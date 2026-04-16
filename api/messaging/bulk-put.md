@@ -22,14 +22,16 @@ You cannot update a bulk messaging job which is already executing or has already
 
 ## Path parameter
 
-Name | Value | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required?
+--- | --- | ---
 job_id | ID of the scheduled job | Yes
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 schedule | ISO 8601 date & time (e.g., "2006-01-02T15:04:05-04:00"). If the value is in the past, messages will be sent immediately. | String | No
 
 ## Response
@@ -40,8 +42,9 @@ schedule | ISO 8601 date & time (e.g., "2006-01-02T15:04:05-04:00"). If the valu
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Object `{ job_id: [bulk messaging job id] }` | Only present when status is `success`.

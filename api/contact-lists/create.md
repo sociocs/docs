@@ -18,9 +18,10 @@ Create a new contact list.
 
 ## Body parameters
 
-| Name | Value             | Data type | Required? {class="compact"} |
-| ---- | ----------------- |
-| name | Contact list name | String    | Yes                         |
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
+name | Contact list name | String | Yes
 
 ## Response
 
@@ -30,8 +31,9 @@ Create a new contact list.
 
 ### Response object
 
-| Name | Value | Remarks {class="compact"} |
-| ---- | ----- |
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Object `{ id: [new contact list id]}` | Only present when status is `success`

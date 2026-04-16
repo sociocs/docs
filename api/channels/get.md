@@ -18,8 +18,9 @@ Get a channel.
 
 ## Path parameter
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 {{include "param-row/channel-key"}}
 
 ## Response
@@ -30,15 +31,17 @@ Name | Value | Data type | Required? {class="compact"}
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Channel object. See below. | Only present when status is `success`
 
 #### Channel object
 
-Name | Value {class="compact"}
+{.compact}
+Name | Value
 --- | ---
 name | Channel name
 country_code | Country dial code of the phone number connected in the channel

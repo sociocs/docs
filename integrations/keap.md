@@ -55,7 +55,8 @@ You need a FREE TRIAL or PAID account on Sociocs to use the necessary API for th
 
 1. Under "Name / Value Pairs", enter below name and value pairs.
 
-    Name | Value | Remarks {class="compact"}
+    {.compact}
+    Name | Value | Remarks
     --- | --- | ---
     provider | provider value from "*Profile & settings -> API*" page (e.g., `twlo`) | If you've multiple phone numbers in Sociocs, make sure to select the applicable channel on the API page.
     channel_key | channel_key value from "*Profile & settings -> API*" page (e.g., `twlo_16317471111`) | If you've multiple phone numbers in Sociocs, make sure to select the applicable channel on the API page.

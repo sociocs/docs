@@ -18,8 +18,9 @@ Get all the unreplied messages.
 
 ## Query string parameter
 
-Name | Value | Required? | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required? | Remarks
+--- | --- | --- | ---
 text | Search term | Yes | -
 direction | `incoming` (Search incoming messages only), <br />`outbound` (Search outgoing messages only), <br />`both` (Search all messages) | No |  Defaults to `both`
 start_date | Date in YYYY-MM-DD format (e.g., `2024-01-01`) | No |  Defaults to 90 days before today. <br />Results include given date.
@@ -33,8 +34,9 @@ end_date | Date in YYYY-MM-DD format (e.g., `2024-01-31`) | No |  Defaults to to
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Array of message objects | Only present when status is `success`

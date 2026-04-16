@@ -19,8 +19,9 @@ data:
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 provider | `twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp) | String | Yes
 channel_key | Channel key value from *Profile & settings -> API* | String | Yes
 recipients | Array of object `{to: "phone_number", name: "recipient_name"}` | String | Yes
@@ -40,8 +41,9 @@ user_id | Sociocs user ID to show that user as sender of the message. When not p
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Object `{ job_id: [bulk messaging job id] }` | Only present when status is `success`.

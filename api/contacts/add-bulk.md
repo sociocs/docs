@@ -17,8 +17,9 @@ Add new contacts in bulk. When a given phone number already exists, it updates e
 
 ## Body parameters
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 list_id | {{include "api/contact-list-id-value"}} | Integer | No (defaults to 0)
 phone_number_cc | Phone number country dial code (e.g. "1") | String | No
 records | See below | Array | Yes
@@ -27,8 +28,9 @@ records | See below | Array | Yes
 
 The 'records' field is supposed to be an array of **up to 10,000** contacts. Each item in the array should be as below.
 
-Name | Value | Data type | Required? {class="compact"}
---- | ---
+{.compact}
+Name | Value | Data type | Required?
+--- | --- | --- | ---
 phone_number | {{include "api/phone-number-value"}} | String | Yes
 name | Contact person name | String | No
 extra_fields | {{include "api/contact-extra-fields-value"}} | Object | No
@@ -41,8 +43,9 @@ extra_fields | {{include "api/contact-extra-fields-value"}} | Object | No
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 

@@ -18,8 +18,9 @@ Get all the unreplied messages from last 90 days.
 
 ## Query string parameter
 
-Name | Value | Required? | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Required? | Remarks
+--- | --- | --- | ---
 start_date | Date in YYYY-MM-DD format (e.g., `2024-01-01`) | No. Defaults to 90 days before today. | Results include given date.
 end_date | Date in YYYY-MM-DD format (e.g., `2024-01-31`) | No. Defaults to today. | Results include given date.
 
@@ -31,8 +32,9 @@ end_date | Date in YYYY-MM-DD format (e.g., `2024-01-31`) | No. Defaults to toda
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Array of message objects | Only present when status is `success`

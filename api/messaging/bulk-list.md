@@ -24,8 +24,9 @@ Get the list of bulk messaging jobs. The list will have max 100 records, ordered
 
 ### Response object
 
-Name | Value | Remarks {class="compact"}
---- | ---
+{.compact}
+Name | Value | Remarks
+--- | --- | ---
 {{include "resp-obj-row/status"}}
 {{include "resp-obj-row/errors"}}
 data | Array of object with the bulk messaging job fields. | Only present when status is `success`.
