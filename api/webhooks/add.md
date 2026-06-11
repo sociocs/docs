@@ -23,9 +23,10 @@ Name | Value | Data type | Required?
 platform | A value that identifies the platform hosting the endpoint (e.g., "salesforce") | String | Yes
 {{include "param-row/provider"}}
 {{include "param-row/channel-key"}}
-events | Array of event types to listen to. <br />`messages` to receiving incoming messages, <br /> `status_updates` to receive status updates for outgoing messages. | Array of string | No. Defaults to `["messages"]`.
 subscriber_reference_id | Unique identifier for the subscription. If you call the API again with the same value for this field, it will update the existing subscription. | String | Yes
-webhook_url | Webhook endpoint URL | String | URL
+webhook_url | Webhook endpoint URL | String | Yes
+events | Events you are subscribring to. Provided values will overwrite existings values, if any. <br />`messages` to receiving incoming messages, <br /> `status_updates` to receive status updates for outgoing messages. | Array of string | No. Defaults to `["messages"]`.
+secret | A webhook secret used to sign payloads. This allows you to verify that incoming requests are genuinely from Sociocs and have not been tampered with. See [validating webhook deliveries](/api/webhooks/introduction/#validating-webhook-deliveries). | String | No. Optional but highly recommended.
 
 !!! info
 If you call this API with the same `subscriber_reference_id`, it will update the existing subscription.
