@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829651435140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834926630698">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Subscribe</title>
@@ -41,12 +41,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/images/sociocs-icon-32.png" />
-    <link href="../../../resources/css/retype.css?v=4.5.3.829651435140" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.834926630698" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.829651435140" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.834926630698" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -191,6 +191,15 @@
 <h2 id="path">Path</h2>
 <p><code translate="no" v-pre>/webhook-subscriptions</code></p>
 <h2 id="body-parameters">Body parameters</h2>
+<retype-table copy-text="Name | Value | Data type | Required?
+--- | --- | --- | ---
+platform | A value that identifies the platform hosting the endpoint (e.g., &quot;salesforce&quot;) | String | Yes
+provider | `twlo` (for Twilio SMS), &lt;br /&gt;`twlowa` (for Twilio WhatsApp), &lt;br /&gt;`gswa` (for Gupshup WhatsApp) | String | Yes
+channel_key | Channel key value from *Profile &amp; settings -&gt; API* | String | Yes
+subscriber_reference_id | Unique identifier for the subscription. If you call the API again with the same value for this field, it will update the existing subscription. | String | Yes
+webhook_url | Webhook endpoint URL | String | Yes
+events | Events you are subscribring to. Provided values will overwrite existings values, if any. &lt;br /&gt;`messages` to receiving incoming messages, &lt;br /&gt; `status_updates` to receive status updates for outgoing messages. | Array of string | No. Defaults to `[&quot;messages&quot;]`.
+secret | A webhook secret used to sign payloads. This allows you to verify that incoming requests are genuinely from Sociocs and have not been tampered with. See [validating webhook deliveries](/api/webhooks/introduction/#validating-webhook-deliveries). | String | No. Optional but highly recommended.">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -221,12 +230,6 @@
 <td>Yes</td>
 </tr>
 <tr>
-<td>events</td>
-<td>Array of event types to listen to. <br /><code translate="no" v-pre>messages</code> to receiving incoming messages, <br /> <code translate="no" v-pre>status_updates</code> to receive status updates for outgoing messages.</td>
-<td>Array of string</td>
-<td>No. Defaults to <code translate="no" v-pre>[&quot;messages&quot;]</code>.</td>
-</tr>
-<tr>
 <td>subscriber_reference_id</td>
 <td>Unique identifier for the subscription. If you call the API again with the same value for this field, it will update the existing subscription.</td>
 <td>String</td>
@@ -236,11 +239,24 @@
 <td>webhook_url</td>
 <td>Webhook endpoint URL</td>
 <td>String</td>
-<td>URL</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>events</td>
+<td>Events you are subscribring to. Provided values will overwrite existings values, if any. <br /><code translate="no" v-pre>messages</code> to receiving incoming messages, <br /> <code translate="no" v-pre>status_updates</code> to receive status updates for outgoing messages.</td>
+<td>Array of string</td>
+<td>No. Defaults to <code translate="no" v-pre>[&quot;messages&quot;]</code>.</td>
+</tr>
+<tr>
+<td>secret</td>
+<td>A webhook secret used to sign payloads. This allows you to verify that incoming requests are genuinely from Sociocs and have not been tampered with. See <a href="../introduction/#validating-webhook-deliveries">validating webhook deliveries</a>.</td>
+<td>String</td>
+<td>No. Optional but highly recommended.</td>
 </tr>
 </tbody>
 </table>
 </div>
+</retype-table>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-primary"></div>
     <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
@@ -262,6 +278,14 @@
 <h2 id="response">Response</h2>
 <h3 id="http-status-codes">HTTP status codes</h3>
 <!-- markdownlint-disable-next-line -->
+<retype-table copy-text="Code | Remarks
+--- | ---
+200 | Request was successful.
+400 | Validation error or request body was incorrectly formatted.
+401 | Authentication failed. Check `apikey` header.
+404 | Requested API endpoint not found.
+429 | The rate limit has been reached.
+500-511 | There was a problem processing the request on our server. Try again later.">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -298,7 +322,13 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h3 id="response-object">Response object</h3>
+<retype-table copy-text="Name | Value | Remarks
+--- | --- | ---
+status | `success` or `error` | -
+errors | Array of object `{ msg: [error detail] }` | Only present when status is `error`.
+data | Object `{ id: [subscription id]}` | Only present when status is `success`">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -327,6 +357,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h2 id="code-sample">Code sample</h2>
 <doc-tabs>
 <doc-tab v-cloak id="curl">

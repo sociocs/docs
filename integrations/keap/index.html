@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829651435140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834926630698">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Keap integration with Sociocs</title>
@@ -47,11 +47,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/images/sociocs-icon-32.png" />
-    <link href="../../resources/css/retype.css?v=4.5.3.829651435140" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.834926630698" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -271,6 +271,13 @@
 </li>
 <li>
 <p>Under &quot;Name / Value Pairs&quot;, enter below name and value pairs.</p>
+<retype-table copy-text="Name | Value | Remarks
+    --- | --- | ---
+    provider | provider value from &quot;*Profile &amp; settings -&gt; API*&quot; page (e.g., `twlo`) | If you've multiple phone numbers in Sociocs, make sure to select the applicable channel on the API page.
+    channel_key | channel_key value from &quot;*Profile &amp; settings -&gt; API*&quot; page (e.g., `twlo_16317471111`) | If you've multiple phone numbers in Sociocs, make sure to select the applicable channel on the API page.
+    to | `~Contact.Phone1~` | Recipient's phone number. You can also enter a phone number directly or use any other variable available in Keap.
+    name | `~Contact.FirstName~` | Recipient's name. You can also enter a name directly or use any other variable available in Keap.
+    text | `Hello world!` | SMS / text message content you would like to send.">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -309,6 +316,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <p><strong>Example:</strong> <img src="https://github.com/sociocs/docs/assets/12301512/ffd6e34b-6e04-407e-95dd-bae092ded696" alt="pairs" class="max-w-full h-auto" /></p>
 </li>
 <li>

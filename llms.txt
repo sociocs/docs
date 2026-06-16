@@ -112,7 +112,7 @@
 
 ### Webhooks
 
-- [Information](https://docs.sociocs.com/api/webhooks/introduction.md): Webhooks are the REST APIs you created yourself or offered by a third-party software, which get called when a message is received in a Sociocs channel.
+- [Information](https://docs.sociocs.com/api/webhooks/introduction.md): Webhooks are your REST APIs which get called when a subscribed event takes place in Sociocs. URL of your REST API endpoint is referred to as webhook endpoint.
 - [Subscribe](https://docs.sociocs.com/api/webhooks/add.md): Subscribe a webhook endpoint to receive incoming messages received on your channel. You can also subscribe to status updates for outgoing messages.
 - [Get subscriptions](https://docs.sociocs.com/api/webhooks/list.md): Get the list of subscriptions.
 - [Get subscription](https://docs.sociocs.com/api/webhooks/get.md): Get a subscription.

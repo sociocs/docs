@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829651435140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834926630698">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>WordPress :: Sociocs - Form</title>
@@ -47,11 +47,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/images/sociocs-icon-32.png" />
-    <link href="../../../resources/css/retype.css?v=4.5.3.829651435140" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.834926630698" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -247,6 +247,15 @@
 </li>
 <li>
 <p>Fill the API information as explained below:</p>
+<retype-table copy-text="Field | Value
+    --- | ---
+    Title | Name for this API entry. e.g. &quot;Contact us form to Sociocs&quot;
+    Select Contact Form | Select your Contact Form 7 form
+    API Url | Above mentioned API URL from Sociocs
+    Header Request | Add above mentioned API Key in this format `apikey: your-api-key`
+    Input Type | Parameters - GET/POST
+    Method | POST
+    Map your Fields | Email address field value must be `email`. Submitter name field value, if present, should be `name`. Other field values can be anything, and that's how they will show up in the Sociocs inbox.">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -287,6 +296,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <p><img src="https://user-images.githubusercontent.com/12301512/210254398-7995321f-5e69-42e1-aca1-51c0fe863e5e.png" alt="image" class="max-w-full h-auto" /></p>
 </li>
 </ol>

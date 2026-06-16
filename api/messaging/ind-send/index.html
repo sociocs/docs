@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829651435140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834926630698">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Send message</title>
@@ -41,12 +41,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/images/sociocs-icon-32.png" />
-    <link href="../../../resources/css/retype.css?v=4.5.3.829651435140" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.834926630698" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.829651435140" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.834926630698" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -197,6 +197,20 @@
 <h2 id="path">Path</h2>
 <p><code translate="no" v-pre>/message</code></p>
 <h2 id="body-parameters">Body parameters</h2>
+<retype-table copy-text="Name | Value | Data type | Required?
+--- | --- | --- | ---
+provider | `twlo` (for Twilio SMS), &lt;br /&gt;`twlowa` (for Twilio WhatsApp), &lt;br /&gt;`gswa` (for Gupshup WhatsApp) | String | Yes
+channel_key | Channel key value from *Profile &amp; settings -&gt; API* | String | Yes
+to | &lt;!-- markdownlint-disable-line --&gt;Phone number starting with the country code with or without leading plus. e.g. `+16175551212` or `16175551212` | String | Yes
+name | Recipient name | String | No
+text | Message text | String | No (when image_url, image_urls or file_url or template is present)
+image_url | Publicly accessible image URL. Supported only when provider is `twlo`. | String | No (when text, video_url or file_url or template is present)
+video_url | Publicly accessible video URL. Supported only when provider is `twlo`. | String | No (when text, image_url or file_url or template is present)
+file_url | Publicly accessible file URL. Supported only when provider is `twlo`. | String | No (when text, image_url or video_url or template is present)
+template | Object with template ID and variables. Used only when provider is either `twlowa` or `gswa`. See below for object format for each provider. | Object | No (when text, image_url or video_url or file_url is present)
+contact_saving | Object with instruction to save phone number and name as a contact after sending the message. See below | Object | No
+schedule | ISO 8601 date &amp; time (e.g., &quot;2006-01-02T15:04:05-04:00&quot;) | String | No
+user_id | Sociocs user ID to show that user as sender of the message. When not provided, message is show as sent by `Sociocs API`. Use [/team-members](/api/team-members/list.md) endpoint to find out User IDs. | String | No">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -283,9 +297,14 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h3 id="template">template</h3>
 <p>This field is used for passing template details when sending a WhatsApp template message. Applicable only when provider is either <code translate="no" v-pre>twlowa</code> or <code translate="no" v-pre>gswa</code>.</p>
 <h4 id="template-for-provider-twlowa">template for provider <code translate="no" v-pre>twlowa</code></h4>
+<retype-table copy-text="Name | Value | Data type | Required?
+--- | --- | --- | ---
+id | Template SID from Twilio Content Template Builder | String | Yes
+variables | Key value pair object with all the variables in the template. &lt;br/&gt;&lt;br/&gt;Example: &lt;br/&gt;`{ &quot;1&quot;: &quot;John&quot;, &quot;2&quot;: &quot;john@example.com&quot;, &quot;3&quot;: &quot;11-Jul-2024&quot; }` | Object | Yes (only when there are variables in the template)">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -312,7 +331,12 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h4 id="template-for-provider-gswa">template for provider <code translate="no" v-pre>gswa</code></h4>
+<retype-table copy-text="Name | Value | Data type | Required?
+--- | --- | --- | ---
+id | Template ID for the template created in the Gupshup console | String | Yes
+variables | Object with `MEDIA_URL` and/or key value pair object maps for each component (`Header`, `Body`, `Buttons`) with variables in the template. &lt;br/&gt;&lt;br/&gt;Example: &lt;br/&gt;`{ &quot;MEDIA_URL&quot;: &quot;https://placehold.co/600x400&quot;, &quot;Header&quot;: { &quot;1&quot;: &quot;John&quot;}, &quot;Body&quot;: { &quot;1&quot;: &quot;john@example.com&quot;, &quot;2&quot;: &quot;11-Jul-2024&quot;}, &quot;Buttons&quot;: {&quot;1&quot;: &quot;Quick Reply Text&quot;} }` | Object | Yes (only when there are variables in the template)">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -339,8 +363,14 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h3 id="contact_saving">contact_saving</h3>
 <p>This field is for passing instruction to save phone number and name as a contact. If the contact already exists, it will be updated. Extra custom fields can also be passed.</p>
+<retype-table copy-text="Name | Value | Data type | Required?
+--- | --- | --- | ---
+save | `true` - Save phone number, name and extra fields as a contact, &lt;br /&gt; `false` - Skip saving as contact | Boolean | No (defaults to `false`)
+list_id | &lt;!-- markdownlint-disable-line --&gt;`0` - to add to &quot;All Contacts&quot; or &lt;br/&gt; List ID - to add to a contact list (Use [/lists](/api/contact-lists/get/) endpoint to get all the contact lists) | Integer | No (defaults to `0`)
+extra_fields | &lt;!-- markdownlint-disable-line --&gt;Key value pair object with additional custom fields (e.g. `{ &quot;email_address&quot;: &quot;john@example.com&quot;, &quot;id&quot;: 987123 }`) | Object | No">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -373,9 +403,18 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h2 id="response">Response</h2>
 <h3 id="http-status-codes">HTTP status codes</h3>
 <!-- markdownlint-disable-next-line -->
+<retype-table copy-text="Code | Remarks
+--- | ---
+200 | Request was successful.
+400 | Validation error or request body was incorrectly formatted.
+401 | Authentication failed. Check `apikey` header.
+404 | Requested API endpoint not found.
+429 | The rate limit has been reached.
+500-511 | There was a problem processing the request on our server. Try again later.">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -412,7 +451,13 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h3 id="response-object">Response object</h3>
+<retype-table copy-text="Name | Value | Remarks
+--- | --- | ---
+status | `success` or `error` | -
+errors | Array of object `{ msg: [error detail] }` | Only present when status is `error`.
+data | Object `{ message_id: [new message id] }` | Only present when status is `success`.">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -441,6 +486,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h2 id="code-samples">Code samples</h2>
 <h3 id="sending-only-text-content">Sending only text content</h3>
 <doc-tabs>

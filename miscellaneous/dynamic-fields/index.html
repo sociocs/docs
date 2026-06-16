@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829651435140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834926630698">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Dynamic fields</title>
@@ -47,11 +47,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/images/sociocs-icon-32.png" />
-    <link href="../../resources/css/retype.css?v=4.5.3.829651435140" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.834926630698" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -253,40 +253,187 @@
 <li>You can do so by using <em>dateFormat</em> like this <code translate="no" v-pre>{{#dateFormat &quot;dddd, mmmm d, yyyy&quot;}}{{appointment_date}}{{/dateFormat}}</code>.</li>
 </ul>
 <h4 id="format-string-options">Format-string options</h4>
-<p class="compact"><strong>Value</strong> | <strong>Description</strong> ---|---
-d | Day of the month as digits; no leading zero for single-digit days.
-dd | Day of the month as digits; leading zero for single-digit days.
-ddd | Day of the week as a three-letter abbreviation.
-DDD | &quot;Ysd&quot; (for Yesterday), &quot;Tdy&quot; (for Today) or &quot;Tmw&quot; (for Tomorrow), if date lies within these three days. Else fall back to ddd.
-dddd | Day of the week as its full name.
-DDDD | &quot;Yesterday&quot;, &quot;Today&quot; or &quot;Tomorrow&quot; if date lies within these three days. Else fall back to dddd.
-m | Month as digits; no leading zero for single-digit months.
-mm | Month as digits; leading zero for single-digit months.
-mmm | Month as a three-letter abbreviation.
-mmmm | Month as its full name.
-yy | Year as last two digits; leading zero for years less than 10.
-yyyy | Year represented by four digits.
-h | Hours; no leading zero for single-digit hours (12-hour clock).
-hh | Hours; leading zero for single-digit hours (12-hour clock).
-H | Hours; no leading zero for single-digit hours (24-hour clock).
-HH | Hours; leading zero for single-digit hours (24-hour clock).
-M | Minutes; no leading zero for single-digit minutes.
-MM | Minutes; leading zero for single-digit minutes.
-N | ISO 8601 numeric representation of the day of the week.
-o | GMT/UTC timezone offset, e.g. -0500 or +0230.
-p | GMT/UTC timezone offset, e.g. -05:00 or +02:30.
-s | Seconds; no leading zero for single-digit seconds.
-ss | Seconds; leading zero for single-digit seconds.
-S | The date&#x27;s ordinal suffix (st, nd, rd, or th). Works well with d.
-l | Milliseconds; gives 3 digits.
-L | Milliseconds; gives 2 digits.
-t | Lowercase, single-character time marker string: a or p.
-tt | Lowercase, two-character time marker string: am or pm.
-T | Uppercase, single-character time marker string: A or P.
-TT | Uppercase, two-character time marker string: AM or PM.
-W | ISO 8601 week number of the year, e.g. 4, 42
-WW | ISO 8601 week number of the year, leading zero for single-digit, e.g. 04, 42
-Z | US timezone abbreviation, e.g. EST or MDT. For non-US timezones, the GMT/UTC offset is returned, e.g. GMT-0500</p>
+ <!--retype-table-column-attrs:Y29sdW1ucwoxCXsgY2xhc3M9ImNvbXBhY3QiIH0K-->
+<retype-table copy-text="**Value** | **Description**
+---|---
+ d | Day of the month as digits; no leading zero for single-digit days.
+ dd | Day of the month as digits; leading zero for single-digit days.
+ ddd | Day of the week as a three-letter abbreviation.
+ DDD | &quot;Ysd&quot; (for Yesterday), &quot;Tdy&quot; (for Today) or &quot;Tmw&quot; (for Tomorrow), if date lies within these three days. Else fall back to ddd.
+ dddd | Day of the week as its full name.
+ DDDD | &quot;Yesterday&quot;, &quot;Today&quot; or &quot;Tomorrow&quot; if date lies within these three days. Else fall back to dddd.
+ m | Month as digits; no leading zero for single-digit months.
+ mm | Month as digits; leading zero for single-digit months.
+ mmm | Month as a three-letter abbreviation.
+ mmmm | Month as its full name.
+ yy | Year as last two digits; leading zero for years less than 10.
+ yyyy | Year represented by four digits.
+ h | Hours; no leading zero for single-digit hours (12-hour clock).
+ hh | Hours; leading zero for single-digit hours (12-hour clock).
+ H | Hours; no leading zero for single-digit hours (24-hour clock).
+ HH | Hours; leading zero for single-digit hours (24-hour clock).
+ M | Minutes; no leading zero for single-digit minutes.
+ MM | Minutes; leading zero for single-digit minutes.
+ N | ISO 8601 numeric representation of the day of the week.
+ o | GMT/UTC timezone offset, e.g. -0500 or +0230.
+ p | GMT/UTC timezone offset, e.g. -05:00 or +02:30.
+ s | Seconds; no leading zero for single-digit seconds.
+ ss | Seconds; leading zero for single-digit seconds.
+ S | The date's ordinal suffix (st, nd, rd, or th). Works well with d.
+ l | Milliseconds; gives 3 digits.
+ L | Milliseconds; gives 2 digits.
+ t | Lowercase, single-character time marker string: a or p.
+ tt | Lowercase, two-character time marker string: am or pm.
+ T | Uppercase, single-character time marker string: A or P.
+ TT | Uppercase, two-character time marker string: AM or PM.
+ W | ISO 8601 week number of the year, e.g. 4, 42
+ WW | ISO 8601 week number of the year, leading zero for single-digit, e.g. 04, 42
+ Z | US timezone abbreviation, e.g. EST or MDT. For non-US timezones, the GMT/UTC offset is returned, e.g. GMT-0500">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th><strong>Value</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d</td>
+<td>Day of the month as digits; no leading zero for single-digit days.</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>Day of the month as digits; leading zero for single-digit days.</td>
+</tr>
+<tr>
+<td>ddd</td>
+<td>Day of the week as a three-letter abbreviation.</td>
+</tr>
+<tr>
+<td>DDD</td>
+<td>&quot;Ysd&quot; (for Yesterday), &quot;Tdy&quot; (for Today) or &quot;Tmw&quot; (for Tomorrow), if date lies within these three days. Else fall back to ddd.</td>
+</tr>
+<tr>
+<td>dddd</td>
+<td>Day of the week as its full name.</td>
+</tr>
+<tr>
+<td>DDDD</td>
+<td>&quot;Yesterday&quot;, &quot;Today&quot; or &quot;Tomorrow&quot; if date lies within these three days. Else fall back to dddd.</td>
+</tr>
+<tr>
+<td>m</td>
+<td>Month as digits; no leading zero for single-digit months.</td>
+</tr>
+<tr>
+<td>mm</td>
+<td>Month as digits; leading zero for single-digit months.</td>
+</tr>
+<tr>
+<td>mmm</td>
+<td>Month as a three-letter abbreviation.</td>
+</tr>
+<tr>
+<td>mmmm</td>
+<td>Month as its full name.</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>Year as last two digits; leading zero for years less than 10.</td>
+</tr>
+<tr>
+<td>yyyy</td>
+<td>Year represented by four digits.</td>
+</tr>
+<tr>
+<td>h</td>
+<td>Hours; no leading zero for single-digit hours (12-hour clock).</td>
+</tr>
+<tr>
+<td>hh</td>
+<td>Hours; leading zero for single-digit hours (12-hour clock).</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Hours; no leading zero for single-digit hours (24-hour clock).</td>
+</tr>
+<tr>
+<td>HH</td>
+<td>Hours; leading zero for single-digit hours (24-hour clock).</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Minutes; no leading zero for single-digit minutes.</td>
+</tr>
+<tr>
+<td>MM</td>
+<td>Minutes; leading zero for single-digit minutes.</td>
+</tr>
+<tr>
+<td>N</td>
+<td>ISO 8601 numeric representation of the day of the week.</td>
+</tr>
+<tr>
+<td>o</td>
+<td>GMT/UTC timezone offset, e.g. -0500 or +0230.</td>
+</tr>
+<tr>
+<td>p</td>
+<td>GMT/UTC timezone offset, e.g. -05:00 or +02:30.</td>
+</tr>
+<tr>
+<td>s</td>
+<td>Seconds; no leading zero for single-digit seconds.</td>
+</tr>
+<tr>
+<td>ss</td>
+<td>Seconds; leading zero for single-digit seconds.</td>
+</tr>
+<tr>
+<td>S</td>
+<td>The date&#x27;s ordinal suffix (st, nd, rd, or th). Works well with d.</td>
+</tr>
+<tr>
+<td>l</td>
+<td>Milliseconds; gives 3 digits.</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Milliseconds; gives 2 digits.</td>
+</tr>
+<tr>
+<td>t</td>
+<td>Lowercase, single-character time marker string: a or p.</td>
+</tr>
+<tr>
+<td>tt</td>
+<td>Lowercase, two-character time marker string: am or pm.</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Uppercase, single-character time marker string: A or P.</td>
+</tr>
+<tr>
+<td>TT</td>
+<td>Uppercase, two-character time marker string: AM or PM.</td>
+</tr>
+<tr>
+<td>W</td>
+<td>ISO 8601 week number of the year, e.g. 4, 42</td>
+</tr>
+<tr>
+<td>WW</td>
+<td>ISO 8601 week number of the year, leading zero for single-digit, e.g. 04, 42</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>US timezone abbreviation, e.g. EST or MDT. For non-US timezones, the GMT/UTC offset is returned, e.g. GMT-0500</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
 <h3 id="content-based-on-condition">Content based on condition</h3>
 <p>Add content based on specified condition.</p>
 <ul>

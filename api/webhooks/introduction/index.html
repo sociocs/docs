@@ -7,15 +7,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829651435140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834926630698">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Information</title>
     <meta name="title" content="Information">
-    <meta name="description" content="Webhooks are the REST APIs you created yourself or offered by a third-party software, which get called when a message is received in a Sociocs channel.">
+    <meta name="description" content="Webhooks are your REST APIs which get called when a subscribed event takes place in Sociocs. URL of your REST API endpoint is referred to as webhook endpoint.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.sociocs.com/api/webhooks/introduction/">
@@ -25,7 +25,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.sociocs.com/api/webhooks/introduction/">
     <meta property="og:title" content="Information">
-    <meta property="og:description" content="Webhooks are the REST APIs you created yourself or offered by a third-party software, which get called when a message is received in a Sociocs channel.">
+    <meta property="og:description" content="Webhooks are your REST APIs which get called when a subscribed event takes place in Sociocs. URL of your REST API endpoint is referred to as webhook endpoint.">
     <meta property="og:site_name" content="Sociocs">
     <meta property="og:locale" content="en_US">
 
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.sociocs.com/api/webhooks/introduction/">
     <meta name="twitter:title" content="Information">
-    <meta name="twitter:description" content="Webhooks are the REST APIs you created yourself or offered by a third-party software, which get called when a message is received in a Sociocs channel.">
+    <meta name="twitter:description" content="Webhooks are your REST APIs which get called when a subscribed event takes place in Sociocs. URL of your REST API endpoint is referred to as webhook endpoint.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.sociocs.com/api/webhooks/introduction.md">
@@ -41,11 +41,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/images/sociocs-icon-32.png" />
-    <link href="../../../resources/css/retype.css?v=4.5.3.829651435140" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.834926630698" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.834926630698" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -182,8 +183,7 @@
 
                 <!-- Page content  -->
 <h1 id="information">Information</h1>
-<p>Webhooks are the REST APIs you created yourself or offered by a third-party software, which get called when a message is received in a Sociocs channel.</p>
-<p>URL of the REST API is referred to as webhook endpoint. You can set multiple webhooks endpoints for the same channel, or the same webhook endpoint for multiple channels.</p>
+<p>Webhooks are your REST APIs which get called when a subscribed event takes place in Sociocs. URL of your REST API endpoint is referred to as webhook endpoint.</p>
 <h2 id="channels-supporting-webhooks">Channels supporting webhooks</h2>
 <ul>
 <li>SMS (with Telnyx)</li>
@@ -192,7 +192,7 @@
 <li>WhatsApp (with Twilio)</li>
 </ul>
 <h2 id="how-to-set-it-up">How to set it up?</h2>
-<p>In order for Sociocs to start calling your webhook endpoint on receiving incoming messages, you need to subscribe the endpoint for a specific channel. You can add multiple webhooks for the same channel, or same webhook for multiple channels, depending upon your needs.</p>
+<p>In order for Sociocs to start calling your webhook endpoint, you need to subscribe it for a specific channel and the events you are interested in. You can add multiple webhooks for the same channel, or same webhook for multiple channels, depending upon your needs.</p>
 <h2 id="webhook-endpoint-invocation-details">Webhook endpoint invocation details</h2>
 <p>Sociocs calls the webhook endpoints with an assumption that it&#x27;s a REST API accepting JSON body parameters.</p>
 <h3 id="method-used">Method used</h3>
@@ -200,6 +200,22 @@
     <span>POST</span>
 </span></p>
 <h3 id="new-incoming-message-body-parameters">New incoming message body parameters</h3>
+<retype-table copy-text="Name | Value | Data type
+--- | --- | ---
+message_id | Message ID | String
+event | `message` | String
+provider | `twlo` (for Twilio SMS), &lt;br /&gt;`twlowa` (for Twilio WhatsApp), &lt;br /&gt;`gswa` (for Gupshup WhatsApp) | String
+channel_key | Channel key associated to the webhook | String
+direction | `incoming` | String
+from | Sending phone number | String
+to | Receiving phone number | String
+name | Sender's name (if available) | String
+text | Message text | String
+file_urls | Publicly accessible links to files in the message | Array of String
+image_urls | Publicly accessible links to images in the message | Array of String
+video_urls | Publicly accessible links to videos in the message | Array of String
+contact | Object with contact details (if a contact with the 'from' phone number is found) | Object
+timestamp | Timestamp as milliseconds since epoch. | Integer">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -283,6 +299,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h4 id="example">Example</h4>
 <div id="example-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">{
@@ -311,6 +328,11 @@
 }</code></pre>
 </doc-codeblock></div>
 <h3 id="outgoing-message-status-updates-body-parameters">Outgoing message status updates body parameters</h3>
+<retype-table copy-text="Name | Value | Data type
+--- | --- | ---
+message_id | Message ID | String
+event | `status_update` | String
+event_data | Object `{ status: &quot;sent&quot;|&quot;delivered&quot;|&quot;read&quot;|&quot;failed&quot;, event: &quot;status_update&quot;, error: [error details when failed]},  provider_err_obj: [error object from provider when failed] }` &lt;br/&gt;&lt;br/&gt;Note: Only WhatsApp channels support the `read` status. | Object">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -339,6 +361,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h4 id="examples">Examples</h4>
 <h4 id="successfully-sent-message">Successfully sent message</h4>
 <div id="successfully-sent-message-code-1" class="codeblock-wrapper"><doc-codeblock>
@@ -380,6 +403,113 @@
   }
 }</code></pre>
 </doc-codeblock></div>
+<h3 id="validating-webhook-deliveries">Validating webhook deliveries</h3>
+<p>When <a href="../add/">subscribing your webhook endpoint</a>, you can optionally pass a <code translate="no" v-pre>secret</code> field. Sociocs will use your secret token to create a hash signature that&#x27;s sent to you with each payload. The hash signature will appear in each delivery as the value of the <code translate="no" v-pre>X-Sociocs-Signature</code> header.</p>
+<p>In your code that handles webhook deliveries, you should calculate a hash using your secret token. Then, compare the hash that Sociocs sent with the expected hash that you calculated, and ensure that they match. This allows you to verify that incoming requests are genuinely from Sociocs and have not been tampered with.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-primary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-primary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>Adding secret and verifying the signature is optional but highly recommended.</p>
+        </div>
+    </div>
+</div>
+<p>There are a few important things to keep in mind when validating webhook payloads:</p>
+<ul>
+<li>Sociocs uses an HMAC sha256 hex digest to compute the hash.</li>
+<li>The hash signature is generated using your webhook&#x27;s secret token and the payload contents.</li>
+<li>If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8. Webhook payloads can contain unicode characters.</li>
+</ul>
+<h4 id="examples-1">Examples</h4>
+<h5 id="javascript--nodejs">JavaScript / Node.js</h5>
+<div id="javascript--nodejs-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">const crypto = require(&quot;crypto&quot;);
+
+/**
+ * Validates an incoming webhook signature.
+ * @param {string} rawBody - The exact raw string body received in the HTTP request.
+ * @param {string} signature - The signature sent in the header (i.e., X-Sociocs-Signature).
+ * @param {string} secret - The shared webhook secret.
+ * @returns {boolean} True if the signature is valid, false otherwise.
+ */
+function verifyWebhookSignature(rawBody, signature, secret) {
+  if (!rawBody || !signature || !secret) {
+    return false;
+  }
+
+  try {
+    // Generate the expected signature using the raw string body
+    const expectedSignature = crypto
+      .createHmac(&quot;sha256&quot;, secret)
+      .update(rawBody, &quot;utf8&quot;)
+      .digest(&quot;hex&quot;);
+
+    // Convert both strings to buffers for a timing-safe comparison
+    const expectedBuffer = Buffer.from(expectedSignature, &quot;hex&quot;);
+    const actualBuffer = Buffer.from(signature, &quot;hex&quot;);
+
+    // Protects against timing attacks by ensuring the comparison 
+    // takes the same amount of time regardless of where a mismatch occurs
+    if (expectedBuffer.length !== actualBuffer.length) {
+      return false;
+    }
+    
+    return crypto.timingSafeEqual(expectedBuffer, actualBuffer);
+  } catch (error) {
+    return false;
+  }
+}</code></pre>
+</doc-codeblock></div>
+<h5 id="python">Python</h5>
+<div id="python-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">import hmac
+import hashlib
+
+def verify_webhook_signature(raw_body: str, signature: str, secret: str) -&gt; bool:
+    &quot;&quot;&quot;
+    Validates an incoming webhook signature.
+    
+    :param raw_body: The exact raw string body received in the HTTP request.
+    :param signature: The signature sent in the header (i.e., X-Sociocs-Signature).
+    :param secret: The shared webhook secret.
+    :return: True if the signature is valid, false otherwise.
+    &quot;&quot;&quot;
+    if not raw_body or not signature or not secret:
+        return False
+
+    try:
+        # Both the secret and payload must be encoded to bytes before hashing
+        secret_bytes = secret.encode(&quot;utf-8&quot;)
+        body_bytes = raw_body.encode(&quot;utf-8&quot;)
+
+        # Generate the expected signature
+        expected_signature = hmac.new(
+            secret_bytes, 
+            body_bytes, 
+            hashlib.sha256
+        ).hexdigest()
+
+        # Prevent timing attacks by using a constant-time comparison function
+        return hmac.compare_digest(expected_signature, signature)
+    except Exception:
+        return False</code></pre>
+</doc-codeblock></div>
+<h4 id="testing-your-webhook-payload-validation">Testing your webhook payload validation</h4>
+<p>You can use the following secret and raw body values to verify that your implementation is correct:</p>
+<ul>
+<li>Secret: <code translate="no" v-pre>My Shared Secret</code></li>
+<li>Raw body: <code translate="no" v-pre>Hello, World!</code></li>
+</ul>
+<p>If your implementation is correct, the signatures that you generate for the comparison should be: <code translate="no" v-pre>a52954ef969a496aeed237f48b03c6df7ea43cd0f6e595d06dfe7a8b14b5d891</code>.</p>
 
                 
                 <!-- Required only on API pages -->
@@ -446,6 +576,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Information", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/api/webhooks/introduction.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Information", level: 3, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/api/webhooks/introduction.md" }</script>
 </body>
 </html>

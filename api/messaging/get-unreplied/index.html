@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829651435140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.834926630698">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Get unreplied messages</title>
@@ -41,12 +41,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/images/sociocs-icon-32.png" />
-    <link href="../../../resources/css/retype.css?v=4.5.3.829651435140" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.834926630698" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829651435140" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.829651435140" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.834926630698" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.834926630698" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -191,6 +191,10 @@
 <h2 id="path">Path</h2>
 <p><code translate="no" v-pre>/messages/unreplied</code></p>
 <h2 id="query-string-parameter">Query string parameter</h2>
+<retype-table copy-text="Name | Value | Required? | Remarks
+--- | --- | --- | ---
+start_date | Date in YYYY-MM-DD format (e.g., `2024-01-01`) | No. Defaults to 90 days before today. | Results include given date.
+end_date | Date in YYYY-MM-DD format (e.g., `2024-01-31`) | No. Defaults to today. | Results include given date.">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -217,9 +221,18 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h2 id="response">Response</h2>
 <h3 id="http-status-codes">HTTP status codes</h3>
 <!-- markdownlint-disable-next-line -->
+<retype-table copy-text="Code | Remarks
+--- | ---
+200 | Request was successful.
+400 | Validation error or request body was incorrectly formatted.
+401 | Authentication failed. Check `apikey` header.
+404 | Requested API endpoint not found.
+429 | The rate limit has been reached.
+500-511 | There was a problem processing the request on our server. Try again later.">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -256,7 +269,13 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h3 id="response-object">Response object</h3>
+<retype-table copy-text="Name | Value | Remarks
+--- | --- | ---
+status | `success` or `error` | -
+errors | Array of object `{ msg: [error detail] }` | Only present when status is `error`.
+data | Array of message objects | Only present when status is `success`">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -285,6 +304,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h2 id="code-sample">Code sample</h2>
 <doc-tabs>
 <doc-tab v-cloak id="curl">

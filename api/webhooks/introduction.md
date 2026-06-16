@@ -1,6 +1,4 @@
-Webhooks are the REST APIs you created yourself or offered by a third-party software, which get called when a message is received in a Sociocs channel.
-
-URL of the REST API is referred to as webhook endpoint. You can set multiple webhooks endpoints for the same channel, or the same webhook endpoint for multiple channels.
+Webhooks are your REST APIs which get called when a subscribed event takes place in Sociocs. URL of your REST API endpoint is referred to as webhook endpoint.
 
 ## Channels supporting webhooks
 
@@ -11,7 +9,7 @@ URL of the REST API is referred to as webhook endpoint. You can set multiple web
 
 ## How to set it up?
 
-In order for Sociocs to start calling your webhook endpoint on receiving incoming messages, you need to subscribe the endpoint for a specific channel. You can add multiple webhooks for the same channel, or same webhook for multiple channels, depending upon your needs.
+In order for Sociocs to start calling your webhook endpoint, you need to subscribe it for a specific channel and the events you are interested in. You can add multiple webhooks for the same channel, or same webhook for multiple channels, depending upon your needs.
 
 ## Webhook endpoint invocation details
 
@@ -125,3 +123,107 @@ event_data | Object `{ status: "sent"|"delivered"|"read"|"failed", event: "statu
   }
 }
 ```
+
+### Validating webhook deliveries
+
+When [subscribing your webhook endpoint](/api/webhooks/add/), you can optionally pass a `secret` field. Sociocs will use your secret token to create a hash signature that's sent to you with each payload. The hash signature will appear in each delivery as the value of the `X-Sociocs-Signature` header.
+
+In your code that handles webhook deliveries, you should calculate a hash using your secret token. Then, compare the hash that Sociocs sent with the expected hash that you calculated, and ensure that they match. This allows you to verify that incoming requests are genuinely from Sociocs and have not been tampered with.
+
+!!!
+Adding secret and verifying the signature is optional but highly recommended.
+!!!
+
+There are a few important things to keep in mind when validating webhook payloads:
+
+- Sociocs uses an HMAC sha256 hex digest to compute the hash.
+- The hash signature is generated using your webhook's secret token and the payload contents.
+- If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8. Webhook payloads can contain unicode characters.
+
+#### Examples
+
+##### JavaScript / Node.js
+
+```javascript
+const crypto = require("crypto");
+
+/**
+ * Validates an incoming webhook signature.
+ * @param {string} rawBody - The exact raw string body received in the HTTP request.
+ * @param {string} signature - The signature sent in the header (i.e., X-Sociocs-Signature).
+ * @param {string} secret - The shared webhook secret.
+ * @returns {boolean} True if the signature is valid, false otherwise.
+ */
+function verifyWebhookSignature(rawBody, signature, secret) {
+  if (!rawBody || !signature || !secret) {
+    return false;
+  }
+
+  try {
+    // Generate the expected signature using the raw string body
+    const expectedSignature = crypto
+      .createHmac("sha256", secret)
+      .update(rawBody, "utf8")
+      .digest("hex");
+
+    // Convert both strings to buffers for a timing-safe comparison
+    const expectedBuffer = Buffer.from(expectedSignature, "hex");
+    const actualBuffer = Buffer.from(signature, "hex");
+
+    // Protects against timing attacks by ensuring the comparison 
+    // takes the same amount of time regardless of where a mismatch occurs
+    if (expectedBuffer.length !== actualBuffer.length) {
+      return false;
+    }
+    
+    return crypto.timingSafeEqual(expectedBuffer, actualBuffer);
+  } catch (error) {
+    return false;
+  }
+}
+```
+
+##### Python
+
+```python
+import hmac
+import hashlib
+
+def verify_webhook_signature(raw_body: str, signature: str, secret: str) -> bool:
+    """
+    Validates an incoming webhook signature.
+    
+    :param raw_body: The exact raw string body received in the HTTP request.
+    :param signature: The signature sent in the header (i.e., X-Sociocs-Signature).
+    :param secret: The shared webhook secret.
+    :return: True if the signature is valid, false otherwise.
+    """
+    if not raw_body or not signature or not secret:
+        return False
+
+    try:
+        # Both the secret and payload must be encoded to bytes before hashing
+        secret_bytes = secret.encode("utf-8")
+        body_bytes = raw_body.encode("utf-8")
+
+        # Generate the expected signature
+        expected_signature = hmac.new(
+            secret_bytes, 
+            body_bytes, 
+            hashlib.sha256
+        ).hexdigest()
+
+        # Prevent timing attacks by using a constant-time comparison function
+        return hmac.compare_digest(expected_signature, signature)
+    except Exception:
+        return False
+```
+
+#### Testing your webhook payload validation
+
+You can use the following secret and raw body values to verify that your implementation is correct:
+
+- Secret: `My Shared Secret`
+- Raw body: `Hello, World!`
+
+If your implementation is correct, the signatures that you generate for the comparison should be: `a52954ef969a496aeed237f48b03c6df7ea43cd0f6e595d06dfe7a8b14b5d891`.
