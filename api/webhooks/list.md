@@ -40,7 +40,7 @@ id | Subscription ID
 channel_key | Channel key associated to this webhook
 created_at | Milliseconds timestamp of when the subscription was created
 platform | Platform hosting the endpoint (value provided by the caller when creating the subscription)
-provider | `twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp)
+provider | `tlnx` (for Telnyx SMS), <br />`twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp)
 status | Status of the webhook subscription. `active` or `paused`
 subscriber_reference_id | Unique identifier for the subscription (value provided by the caller when creating the subscription)
 trigger_direction | Value is always `incoming`

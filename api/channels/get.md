@@ -46,7 +46,7 @@ Name | Value
 name | Channel name
 country_code | Country dial code of the phone number connected in the channel
 phone_number | Phone number connected in the channel
-provider | Messaging provider for the channel <br />`twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp)
+provider | Messaging provider for the channel <br />`tlnx` (for Telnyx SMS), <br />`twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp)
 
 ## Code sample
 

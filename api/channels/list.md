@@ -13,7 +13,7 @@ Get the list of channels for the given provider.
 {.compact}
 Name | Value | Required?
 --- | --- | ---
-provider | `twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp) | Yes
+provider | `tlnx` (for Telnyx SMS), <br />`twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp) | Yes
 
 ## Response
 
