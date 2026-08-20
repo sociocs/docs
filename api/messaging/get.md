@@ -21,8 +21,8 @@ Get all the messages.
 {.compact}
 Name | Value | Required? | Remarks
 --- | --- | --- | ---
-start_date | Date in YYYY-MM-DD format (e.g., `2024-01-01`) | No |  Defaults to 90 days before today. <br />Results include given date.
-end_date | Date in YYYY-MM-DD format (e.g., `2024-01-31`) | No |  Defaults to today. <br />Results include given date.
+start_date | Date in YYYY-MM-DD format (e.g., `2024-01-01`) | No |  Defaults to today. <br />Results include given date.
+end_date | Date in YYYY-MM-DD format (e.g., `2024-01-31`) | No |  Max 31 days after the start date. Defaults to today. <br />Results include given date.
 
 ## Response
 
