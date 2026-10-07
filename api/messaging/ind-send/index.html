@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840548552200">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.844699003029">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -15,7 +15,7 @@
     <!-- Primary Meta Tags -->
     <title>Send message</title>
     <meta name="title" content="Send message">
-    <meta name="description" content="Send a message on Twilio SMS, Twilio WhatsApp or Gupshup WhatsApp channel.">
+    <meta name="description" content="Send a message on Gupshup WhatsApp, Signal House SMS, Telnyx SMS, Twilio SMS or Twilio WhatsApp channel.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.sociocs.com/api/messaging/ind-send/">
@@ -25,7 +25,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.sociocs.com/api/messaging/ind-send/">
     <meta property="og:title" content="Send message">
-    <meta property="og:description" content="Send a message on Twilio SMS, Twilio WhatsApp or Gupshup WhatsApp channel.">
+    <meta property="og:description" content="Send a message on Gupshup WhatsApp, Signal House SMS, Telnyx SMS, Twilio SMS or Twilio WhatsApp channel.">
     <meta property="og:site_name" content="Sociocs">
     <meta property="og:locale" content="en_US">
 
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.sociocs.com/api/messaging/ind-send/">
     <meta name="twitter:title" content="Send message">
-    <meta name="twitter:description" content="Send a message on Twilio SMS, Twilio WhatsApp or Gupshup WhatsApp channel.">
+    <meta name="twitter:description" content="Send a message on Gupshup WhatsApp, Signal House SMS, Telnyx SMS, Twilio SMS or Twilio WhatsApp channel.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.sociocs.com/api/messaging/ind-send.md">
@@ -41,12 +41,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../static/images/sociocs-icon-32.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.840548552200" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.844699003029" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.840548552200" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.844699003029" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.840548552200" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.840548552200" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.844699003029" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.844699003029" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -184,7 +184,7 @@
                 <!-- Page content  -->
 <h1 id="send-message">Send message</h1>
 <ul>
-<li>Send a message on Twilio SMS, Twilio WhatsApp or Gupshup WhatsApp channel.</li>
+<li>Send a message on Gupshup WhatsApp, Signal House SMS, Telnyx SMS, Twilio SMS or Twilio WhatsApp channel.</li>
 <li>You can also send an image, a video or a file.</li>
 <li>You can schedule the message to be sent at a future date and time.</li>
 <li>Optionally, you can also save the recipient in a contact list.</li>
@@ -199,18 +199,18 @@
 <h2 id="body-parameters">Body parameters</h2>
 <retype-table copy-text="Name | Value | Data type | Required?
 --- | --- | --- | ---
-provider | `twlo` (for Twilio SMS), &lt;br /&gt;`twlowa` (for Twilio WhatsApp), &lt;br /&gt;`gswa` (for Gupshup WhatsApp) | String | Yes
+provider | `gswa` (for Gupshup WhatsApp), &lt;br /&gt; `sh` (for Signal House SMS), &lt;br /&gt; `tlnx` (for Telnyx SMS), &lt;br /&gt; `twlo` (for Twilio SMS), &lt;br /&gt; `twlowa` (for Twilio WhatsApp) | String | Yes
 channel_key | Channel key value from *Profile &amp; settings -&gt; API* | String | Yes
 to | &lt;!-- markdownlint-disable-line --&gt;Phone number starting with the country code with or without leading plus. e.g. `+16175551212` or `16175551212` | String | Yes
 name | Recipient name | String | No
-text | Message text | String | No (when image_url, image_urls or file_url or template is present)
-image_url | Publicly accessible image URL. Supported only when provider is `twlo`. | String | No (when text, video_url or file_url or template is present)
-video_url | Publicly accessible video URL. Supported only when provider is `twlo`. | String | No (when text, image_url or file_url or template is present)
-file_url | Publicly accessible file URL. Supported only when provider is `twlo`. | String | No (when text, image_url or video_url or template is present)
-template | Object with template ID and variables. Used only when provider is either `twlowa` or `gswa`. See below for object format for each provider. | Object | No (when text, image_url or video_url or file_url is present)
+text | Message text | String | No (at least one of the text, image_url, video_url, file_url or template are required)
+image_url | Publicly accessible image URL | String | No (at least one of the text, image_url, video_url, file_url or template are required)
+video_url | Publicly accessible video URL | String | No (at least one of the text, image_url, video_url, file_url or template are required)
+file_url | Publicly accessible file URL | String | No (at least one of the text, image_url, video_url, file_url or template are required)
+template | Object with template ID and variables. Used only when provider is either `twlowa` or `gswa`. See below for object format for each provider. | Object | No (at least one of the text, image_url, video_url, file_url or template are required)
 contact_saving | Object with instruction to save phone number and name as a contact after sending the message. See below | Object | No
-schedule | ISO 8601 date &amp; time (e.g., &quot;2006-01-02T15:04:05-04:00&quot;) | String | No
-user_id | Sociocs user ID to show that user as sender of the message. When not provided, message is show as sent by `Sociocs API`. Use [/team-members](/api/team-members/list.md) endpoint to find out User IDs. | String | No">
+schedule | ISO 8601 date &amp; time (e.g., &quot;2006-01-02T15:04:05-04:00&quot;) | String | No (Message is sent immediately when not provided)
+user_id | Sociocs user ID to show that user as sender of the message. Use [/team-members](/api/team-members/list.md) endpoint to find out User IDs. | String | No (Message is show as sent by `Sociocs API` when not provided)">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="compact">
 <thead>
@@ -224,7 +224,7 @@ user_id | Sociocs user ID to show that user as sender of the message. When not p
 <tbody>
 <tr>
 <td>provider</td>
-<td><code translate="no" v-pre>twlo</code> (for Twilio SMS), <br /><code translate="no" v-pre>twlowa</code> (for Twilio WhatsApp), <br /><code translate="no" v-pre>gswa</code> (for Gupshup WhatsApp)</td>
+<td><code translate="no" v-pre>gswa</code> (for Gupshup WhatsApp), <br /> <code translate="no" v-pre>sh</code> (for Signal House SMS), <br /> <code translate="no" v-pre>tlnx</code> (for Telnyx SMS), <br /> <code translate="no" v-pre>twlo</code> (for Twilio SMS), <br /> <code translate="no" v-pre>twlowa</code> (for Twilio WhatsApp)</td>
 <td>String</td>
 <td>Yes</td>
 </tr>
@@ -250,31 +250,31 @@ user_id | Sociocs user ID to show that user as sender of the message. When not p
 <td>text</td>
 <td>Message text</td>
 <td>String</td>
-<td>No (when image_url, image_urls or file_url or template is present)</td>
+<td>No (at least one of the text, image_url, video_url, file_url or template are required)</td>
 </tr>
 <tr>
 <td>image_url</td>
-<td>Publicly accessible image URL. Supported only when provider is <code translate="no" v-pre>twlo</code>.</td>
+<td>Publicly accessible image URL</td>
 <td>String</td>
-<td>No (when text, video_url or file_url or template is present)</td>
+<td>No (at least one of the text, image_url, video_url, file_url or template are required)</td>
 </tr>
 <tr>
 <td>video_url</td>
-<td>Publicly accessible video URL. Supported only when provider is <code translate="no" v-pre>twlo</code>.</td>
+<td>Publicly accessible video URL</td>
 <td>String</td>
-<td>No (when text, image_url or file_url or template is present)</td>
+<td>No (at least one of the text, image_url, video_url, file_url or template are required)</td>
 </tr>
 <tr>
 <td>file_url</td>
-<td>Publicly accessible file URL. Supported only when provider is <code translate="no" v-pre>twlo</code>.</td>
+<td>Publicly accessible file URL</td>
 <td>String</td>
-<td>No (when text, image_url or video_url or template is present)</td>
+<td>No (at least one of the text, image_url, video_url, file_url or template are required)</td>
 </tr>
 <tr>
 <td>template</td>
 <td>Object with template ID and variables. Used only when provider is either <code translate="no" v-pre>twlowa</code> or <code translate="no" v-pre>gswa</code>. See below for object format for each provider.</td>
 <td>Object</td>
-<td>No (when text, image_url or video_url or file_url is present)</td>
+<td>No (at least one of the text, image_url, video_url, file_url or template are required)</td>
 </tr>
 <tr>
 <td>contact_saving</td>
@@ -286,13 +286,13 @@ user_id | Sociocs user ID to show that user as sender of the message. When not p
 <td>schedule</td>
 <td>ISO 8601 date &amp; time (e.g., &quot;2006-01-02T15:04:05-04:00&quot;)</td>
 <td>String</td>
-<td>No</td>
+<td>No (Message is sent immediately when not provided)</td>
 </tr>
 <tr>
 <td>user_id</td>
-<td>Sociocs user ID to show that user as sender of the message. When not provided, message is show as sent by <code translate="no" v-pre>Sociocs API</code>. Use <a href="../../team-members/list/">/team-members</a> endpoint to find out User IDs.</td>
+<td>Sociocs user ID to show that user as sender of the message. Use <a href="../../team-members/list/">/team-members</a> endpoint to find out User IDs.</td>
 <td>String</td>
-<td>No</td>
+<td>No (Message is show as sent by <code translate="no" v-pre>Sociocs API</code> when not provided)</td>
 </tr>
 </tbody>
 </table>

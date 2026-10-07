@@ -1,4 +1,4 @@
-- Send a message on Twilio SMS, Twilio WhatsApp or Gupshup WhatsApp channel.
+- Send a message on Gupshup WhatsApp, Signal House SMS, Telnyx SMS, Twilio SMS or Twilio WhatsApp channel.
 - You can also send an image, a video or a file.
 - You can schedule the message to be sent at a future date and time.
 - Optionally, you can also save the recipient in a contact list.
@@ -17,18 +17,18 @@
 {.compact}
 Name | Value | Data type | Required?
 --- | --- | --- | ---
-provider | `twlo` (for Twilio SMS), <br />`twlowa` (for Twilio WhatsApp), <br />`gswa` (for Gupshup WhatsApp) | String | Yes
+provider | `gswa` (for Gupshup WhatsApp), <br /> `sh` (for Signal House SMS), <br /> `tlnx` (for Telnyx SMS), <br /> `twlo` (for Twilio SMS), <br /> `twlowa` (for Twilio WhatsApp) | String | Yes
 channel_key | Channel key value from *Profile & settings -> API* | String | Yes
 to | Phone number starting with the country code with or without leading plus. e.g. `+16175551212` or `16175551212` | String | Yes
 name | Recipient name | String | No
-text | Message text | String | No (when image_url, image_urls or file_url or template is present)
-image_url | Publicly accessible image URL. Supported only when provider is `twlo`. | String | No (when text, video_url or file_url or template is present)
-video_url | Publicly accessible video URL. Supported only when provider is `twlo`. | String | No (when text, image_url or file_url or template is present)
-file_url | Publicly accessible file URL. Supported only when provider is `twlo`. | String | No (when text, image_url or video_url or template is present)
-template | Object with template ID and variables. Used only when provider is either `twlowa` or `gswa`. See below for object format for each provider. | Object | No (when text, image_url or video_url or file_url is present)
+text | Message text | String | No (at least one of the text, image_url, video_url, file_url or template are required)
+image_url | Publicly accessible image URL | String | No (at least one of the text, image_url, video_url, file_url or template are required)
+video_url | Publicly accessible video URL | String | No (at least one of the text, image_url, video_url, file_url or template are required)
+file_url | Publicly accessible file URL | String | No (at least one of the text, image_url, video_url, file_url or template are required)
+template | Object with template ID and variables. Used only when provider is either `twlowa` or `gswa`. See below for object format for each provider. | Object | No (at least one of the text, image_url, video_url, file_url or template are required)
 contact_saving | Object with instruction to save phone number and name as a contact after sending the message. See below | Object | No
-schedule | ISO 8601 date & time (e.g., "2006-01-02T15:04:05-04:00") | String | No
-user_id | Sociocs user ID to show that user as sender of the message. When not provided, message is show as sent by `Sociocs API`. Use [/team-members](/api/team-members/list.md) endpoint to find out User IDs. | String | No
+schedule | ISO 8601 date & time (e.g., "2006-01-02T15:04:05-04:00") | String | No (Message is sent immediately when not provided)
+user_id | Sociocs user ID to show that user as sender of the message. Use [/team-members](/api/team-members/list.md) endpoint to find out User IDs. | String | No (Message is show as sent by `Sociocs API` when not provided)
 
 ### template
 

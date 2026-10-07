@@ -94,7 +94,7 @@
 
 ### Messaging
 
-- [Send message](https://docs.sociocs.com/api/messaging/ind-send.md): Send a message on Twilio SMS, Twilio WhatsApp or Gupshup WhatsApp channel.
+- [Send message](https://docs.sociocs.com/api/messaging/ind-send.md): Send a message on Gupshup WhatsApp, Signal House SMS, Telnyx SMS, Twilio SMS or Twilio WhatsApp channel.
 - [Save incoming message](https://docs.sociocs.com/api/messaging/ind-save-incoming.md): Save a message in the inbox. You can use it to save a message received on an external platform or create a mock message with information you may need during the conversation.
 - [Get scheduled messages](https://docs.sociocs.com/api/messaging/ind-list-scheduled.md): Get the list of scheduled messages. The list will have max 100 records, ordered by the scheduled date in descending order. Pagination is not available at the moment.
 - [Delete scheduled message](https://docs.sociocs.com/api/messaging/ind-delete-scheduled.md): Delete a scheduled message.
